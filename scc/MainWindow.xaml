@@ -1,0 +1,84 @@
+﻿<Window x:Class="scc.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:scc"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Height="450" Width="500" WindowStartupLocation="CenterScreen" Visibility="Visible" ResizeMode="CanMinimize">
+
+    <Grid>
+        <materialDesign:Card Margin="74,26,81,40">
+            <Grid>
+                <GroupBox
+                    Header="INICIAR SESION" 
+                    Style="{DynamicResource MaterialDesignCardGroupBox}">
+                    <GroupBox.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon
+                                    Kind="BadgeAccountOutline" 
+                                    Height="40"
+                                    Width="40"/>
+                                <TextBlock
+                                    Margin="30,0,0,0"
+                                    FontSize="25"
+                                    FontWeight="UltraBold"
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                                    Text="{Binding}" />
+                                
+                            </StackPanel>
+                        </DataTemplate>
+                        
+                    </GroupBox.HeaderTemplate>
+                    
+                    
+
+
+                </GroupBox>
+              
+                <TextBox
+                    materialDesign:HintAssist.Hint="Nombre de usuario"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                    Margin="19,0,19,220" 
+                    Height="43" 
+                    FontSize="15"
+                    VerticalAlignment="Bottom" />
+                <PasswordBox
+                    x:Name="FloatingPasswordBox"
+                    Margin="19,20,19,2" 
+                    Height="43" 
+                    FontSize="15"
+                    materialDesign:HintAssist.Hint="Contraseña"
+                    materialDesign:HintAssist.Foreground="Green"
+                    materialDesign:TextFieldAssist.UnderlineBrush="Green"
+                    Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+
+
+                <Button x:Name="btnInisiarSesion"
+                    Click="btnInisiarSesion_Click"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    Width="126"
+                    FontSize="19"
+                    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
+                    Margin="103,261,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="37">
+                   
+
+                    INGRESAR
+                </Button>
+
+
+            </Grid>
+        </materialDesign:Card>
+
+    </Grid>
+</Window>
