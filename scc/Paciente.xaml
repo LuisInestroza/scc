@@ -1,0 +1,249 @@
+﻿<Window x:Class="scc.Paciente"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:scc"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Height="500" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid>
+        <materialDesign:Card>
+            <Grid>
+
+
+                <GroupBox Header="Datos del Paciente" HorizontalAlignment="Left" Height="500" Width="800" VerticalAlignment="Top" RenderTransformOrigin="-3.102,0.759">
+                    <GroupBox.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock
+                           Margin="30,0,0,0"
+                           FontSize="25"
+                           FontWeight="UltraBold"
+                           VerticalAlignment="Center"
+                           Style="{StaticResource MaterialDesignSubtitle1TextBlock
+                                    }"
+                           Text="{Binding}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </GroupBox.HeaderTemplate>
+
+
+
+                </GroupBox>
+                <ListBox HorizontalAlignment="Right" Margin="0,50,0,0">
+                    <TextBlock FontWeight="UltraBold" FontSize="15">Listado de Pacientes</TextBlock>
+                    <ListViewItem>
+                        Luis Dario Rodriguez Inestroza
+                    </ListViewItem>
+                    <ListViewItem>
+                        Maria Trinidad Inestroza Ventura
+                    </ListViewItem>
+                    <ListViewItem>
+                        Cristian Javier Valladares Inestroza
+                    </ListViewItem>
+                    <ListViewItem>
+                        Jose Dario Rodriguez
+                    </ListViewItem>
+                </ListBox>
+                <!--Formulario-->
+                <TextBox
+               
+                    materialDesign:HintAssist.Hint="Nombre Completo"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                    Width="350"
+                    VerticalAlignment="Top"
+                    Height="45" 
+                    FontSize="15" Margin="0,60,400,0"/>
+                <TextBox
+               
+                    materialDesign:HintAssist.Hint="Numero Identidad"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                    Width="350"
+                    VerticalAlignment="Top"
+                    Height="45" 
+                    FontSize="15" Margin="0,110,400,0"/>
+
+                <TextBox
+               
+                    materialDesign:HintAssist.Hint="Edad"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                    Width="60"
+                    VerticalAlignment="Top"
+                    Height="45" 
+                    FontSize="15" Margin="25,160,715,0"/>
+                <DatePicker
+                    VerticalAlignment="Top"
+                    Margin="103,168,573,0"
+                    materialDesign:HintAssist.Hint="Fecha Nacimiento"
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                <ComboBox
+                    Width="100"
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="Sexo"
+                    materialDesign:HintAssist.HintOpacity=".26"
+                    IsEditable="True" Margin="247,177,453,0">
+                    <ComboBoxItem>
+                        Masculino
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        Femenino
+                    </ComboBoxItem>
+
+
+                </ComboBox>
+
+                <TextBox
+               
+                    materialDesign:HintAssist.Hint="Lugar de Nacimiento"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                    Width="175"
+                    VerticalAlignment="Top"
+                    Height="45" 
+                    FontSize="15" Margin="25,210,600,0"/>
+                <TextBox
+               
+                    materialDesign:HintAssist.Hint="Lugar de Residencia"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                    Width="175"
+                    VerticalAlignment="Top"
+                    Height="45" 
+                    FontSize="15" Margin="209,210,416,0"/>
+                <TextBox
+               
+                    materialDesign:HintAssist.Hint="Correo Electronico"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                    Width="175"
+                    VerticalAlignment="Top"
+                    Height="45" 
+                    FontSize="15" Margin="25,260,600,0"/>
+
+                <TextBox
+               
+                    materialDesign:HintAssist.Hint="Telefonos"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                    Width="175"
+                    VerticalAlignment="Top"
+                    Height="45" 
+                    FontSize="15" Margin="209,260,416,0"/>
+
+                <TextBox
+               
+                    materialDesign:HintAssist.Hint="Direccion"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                    Width="350"
+                    VerticalAlignment="Top"
+                    Height="45" 
+                    FontSize="15" Margin="25,310,425,0"/>
+
+                <ComboBox
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="Escolaridad"
+                    materialDesign:HintAssist.HintOpacity=".26"
+                    IsEditable="True" Margin="25,374,626,0">
+                    <ComboBoxItem>
+                        Kinder
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        Educacion Primaria
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        Educacion Secundaria
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        Educacion Superior
+                    </ComboBoxItem>
+
+
+                </ComboBox>
+                <ComboBox
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="Raza"
+                    materialDesign:HintAssist.HintOpacity=".26"
+                    IsEditable="True" Margin="190,374,533,0">
+                    <ComboBoxItem>
+                        Blanca
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        Negra
+                    </ComboBoxItem>
+            
+                </ComboBox>
+                <ComboBox
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="Estado Civil"
+                    materialDesign:HintAssist.HintOpacity=".26"
+                    IsEditable="True" Margin="281,374,416,0">
+                    <ComboBoxItem>
+                        Soltero(a)
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        Casado(a)
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        Viudo(a)
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        Divorciado(a)
+                    </ComboBoxItem>
+
+                </ComboBox>
+                
+                <ComboBox
+                    VerticalAlignment="Top"
+                    materialDesign:HintAssist.Hint="Religion"
+                    materialDesign:HintAssist.HintOpacity=".26"
+                    IsEditable="True" Margin="394,374,303,0">
+                    <ComboBoxItem>
+                        Catolico
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        Evangelico 
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        Mormon
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        Judio
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        Musulman
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        Ateo
+                    </ComboBoxItem>
+
+                </ComboBox>
+                
+                <!--Button de agregar paciente-->
+
+                <Button 
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    Width="219"
+                    FontSize="19"
+                    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
+                    Margin="209,436,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="37">
+
+
+                    AGREGAR PACIENTE
+                </Button>
+
+
+
+
+
+            </Grid>
+
+        </materialDesign:Card>
+
+
+
+    </Grid>
+</Window>
