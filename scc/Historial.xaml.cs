@@ -22,7 +22,30 @@ namespace scc
         public Historial()
         {
             InitializeComponent();
+            //Mostrar la fecha y hor actual
             txtBlockFechaIngreso.Text = DateTime.Now.ToString();
+
+            // Mostrar los detalles de la historia clinica
+            string historiaClinica;
+
+            historiaClinica = 
+                
+                "SIGNOS VITALES:\n\n" +
+                "P/A:\tFC:\tFR:\tT:\tSO2:\tP:\t\n\n" +
+                "PESO:\tTALLA:\tIMC:\t\n\n" +
+                "Circunferencia Abdominal:\n\n" +
+                "Neurologico:\n\n" +
+                "Cabeza:\n\n" +
+                "Cuello:\n\n" +
+                "Torax:\n" +
+                "\tMamas:\n" +
+                "\tCorazon:\n" +
+                "\tPulmones:\n\n" +
+                "Abdomen:\n\n" +
+                "Genitourinario:\n\n" +
+                "Extremidades:\n\n";
+
+            txtHistoriaClinica.AppendText(historiaClinica);
         }
     }
 }

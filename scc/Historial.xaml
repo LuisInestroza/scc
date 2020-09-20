@@ -84,6 +84,7 @@
 
                 <StackPanel  Margin="424,65,10,10">
                     <TextBox
+                        x:Name="txtHistoriaClinica"
                         Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                         VerticalAlignment="Top"
                         Height="420"
