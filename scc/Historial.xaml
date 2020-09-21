@@ -41,6 +41,7 @@
                     FontSize="15"
                     VerticalAlignment="Top"
                     Margin="20,67,381,0">
+               
                     Fecha Ingreso
                 </TextBlock>
                 <TextBlock 
@@ -93,6 +94,21 @@
                         VerticalScrollBarVisibility="Auto"
                         materialDesign:HintAssist.Hint="Historia Clinica"/>
                 </StackPanel>
+                <DatePicker
+                    Name="LocaleDatePicker"
+                    Width="120"
+                    materialDesign:HintAssist.Hint="Proxima Cita" Margin="20,307,660,168" />
+
+                <Button 
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    Width="290"
+                    FontSize="19"
+                    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
+                    Margin="62,404,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="36">
+
+
+                    GUARDAR HISTORIA CLINICA
+                </Button>
 
             </Grid>
         </materialDesign:Card>

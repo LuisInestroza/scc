@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace scc
 {
@@ -19,17 +20,24 @@ namespace scc
     /// </summary>
     public partial class Historial : Window
     {
+        System.Windows.Threading.DispatcherTimer timer = new DispatcherTimer();
+
         public Historial()
         {
             InitializeComponent();
-            //Mostrar la fecha y hor actual
-            txtBlockFechaIngreso.Text = DateTime.Now.ToString();
+
+            // Mostrar el hora y fecha
+            timer.Tick += new EventHandler(Timer_Tick);
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Start();
+    
 
             // Mostrar los detalles de la historia clinica
             string historiaClinica;
 
-            historiaClinica = 
-                
+            // Datos de la historia clinica 
+            historiaClinica =
+
                 "SIGNOS VITALES:\n\n" +
                 "P/A:\tFC:\tFR:\tT:\tSO2:\tP:\t\n\n" +
                 "PESO:\tTALLA:\tIMC:\t\n\n" +
@@ -43,9 +51,30 @@ namespace scc
                 "\tPulmones:\n\n" +
                 "Abdomen:\n\n" +
                 "Genitourinario:\n\n" +
-                "Extremidades:\n\n";
+                "Extremidades:\n\n\n" +
+                "Resultados de Laboratorio:\n\n" +
+                "Colesterol total:\n" +
+                "Colesterol HDL:\n" +
+                "Colesterol LDL:\n" +
+                "Trigliceridos:\n" +
+                "HB:\t\tLEUCO:\n" +
+                "HTO:\t\tN%:\n" +
+                "PLT:\t\tL%:\n\n" +
+                "Diaganostico:";
 
+           
+            // Concatenar los campos de la historia clinica
             txtHistoriaClinica.AppendText(historiaClinica);
+            
         }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            DateTime date;
+            date = DateTime.Now;
+            txtBlockFechaIngreso.Text = date.ToShortTimeString() + " " + " " + date.ToLongDateString();
+        }
+
+        
     }
 }
