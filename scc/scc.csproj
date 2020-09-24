@@ -79,6 +79,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Conexion.cs" />
     <Compile Include="Diagnostico.xaml.cs">
       <DependentUpon>Diagnostico.xaml</DependentUpon>
     </Compile>
@@ -105,6 +106,7 @@
     <Compile Include="Paciente.xaml.cs">
       <DependentUpon>Paciente.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pacientes\Paciente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
