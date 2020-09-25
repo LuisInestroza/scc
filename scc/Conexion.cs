@@ -30,7 +30,7 @@ namespace scc
         }
 
 
-        private void EstablecerConexion()
+        public void EstablecerConexion()
         {
             try 
             {   

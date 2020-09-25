@@ -55,7 +55,7 @@
                 </ListBox>
                 <!--Formulario-->
                 <TextBox
-               
+                    x:Name="txtNombre"
                     materialDesign:HintAssist.Hint="Nombre Completo"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                     Width="350"
@@ -63,7 +63,7 @@
                     Height="45" 
                     FontSize="15" Margin="0,60,400,0"/>
                 <TextBox
-               
+                    x:Name="txtIdentidad"
                     materialDesign:HintAssist.Hint="Numero Identidad"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                     Width="350"
@@ -72,7 +72,7 @@
                     FontSize="15" Margin="0,110,400,0"/>
 
                 <TextBox
-               
+                    x:Name="txtEdad"
                     materialDesign:HintAssist.Hint="Edad"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                     Width="60"
@@ -80,11 +80,14 @@
                     Height="45" 
                     FontSize="15" Margin="25,160,715,0"/>
                 <DatePicker
+                    x:Name="dpFechaNaciemiento"
                     VerticalAlignment="Top"
                     Margin="103,168,573,0"
                     materialDesign:HintAssist.Hint="Fecha Nacimiento"
                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                 <ComboBox
+                   
+                    x:Name="cbSexo"
                     Width="100"
                     VerticalAlignment="Top"
                     materialDesign:HintAssist.Hint="Sexo"
@@ -101,7 +104,7 @@
                 </ComboBox>
 
                 <TextBox
-               
+                    x:Name="txtLugarNacimiento"
                     materialDesign:HintAssist.Hint="Lugar de Nacimiento"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                     Width="175"
@@ -109,7 +112,7 @@
                     Height="45" 
                     FontSize="15" Margin="25,210,600,0"/>
                 <TextBox
-               
+                    x:Name="txtLugarResidencia"
                     materialDesign:HintAssist.Hint="Lugar de Residencia"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                     Width="175"
@@ -117,7 +120,7 @@
                     Height="45" 
                     FontSize="15" Margin="209,210,416,0"/>
                 <TextBox
-               
+                   x:Name="txtCorreo"
                     materialDesign:HintAssist.Hint="Correo Electronico"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                     Width="175"
@@ -126,7 +129,7 @@
                     FontSize="15" Margin="25,260,600,0"/>
 
                 <TextBox
-               
+                    x:Name="txtTelefonos"
                     materialDesign:HintAssist.Hint="Telefonos"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                     Width="175"
@@ -135,7 +138,7 @@
                     FontSize="15" Margin="209,260,416,0"/>
 
                 <TextBox
-               
+                    x:Name="txtDireccion"
                     materialDesign:HintAssist.Hint="Direccion"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                     Width="350"
@@ -144,6 +147,7 @@
                     FontSize="15" Margin="25,310,425,0"/>
 
                 <ComboBox
+                    x:Name="cbEscolaridad"
                     VerticalAlignment="Top"
                     materialDesign:HintAssist.Hint="Escolaridad"
                     materialDesign:HintAssist.HintOpacity=".26"
@@ -164,6 +168,7 @@
 
                 </ComboBox>
                 <ComboBox
+                    x:Name="cbRaza"
                     VerticalAlignment="Top"
                     materialDesign:HintAssist.Hint="Raza"
                     materialDesign:HintAssist.HintOpacity=".26"
@@ -177,6 +182,7 @@
             
                 </ComboBox>
                 <ComboBox
+                    x:Name="cbEstadoCivil"
                     VerticalAlignment="Top"
                     materialDesign:HintAssist.Hint="Estado Civil"
                     materialDesign:HintAssist.HintOpacity=".26"
@@ -197,6 +203,7 @@
                 </ComboBox>
                 
                 <ComboBox
+                    x:Name="cbReligion"
                     VerticalAlignment="Top"
                     materialDesign:HintAssist.Hint="Religion"
                     materialDesign:HintAssist.HintOpacity=".26"
@@ -225,6 +232,8 @@
                 <!--Button de agregar paciente-->
 
                 <Button 
+                    x:Name="btnAgregarPaciente"
+                    Click="btnAgregarPaciente_Click"
                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                     Width="219"
                     FontSize="19"
