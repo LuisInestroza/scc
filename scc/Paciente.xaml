@@ -38,20 +38,9 @@
 
 
                 </GroupBox>
-                <ListBox HorizontalAlignment="Right" Margin="0,50,0,0">
-                    <TextBlock FontWeight="UltraBold" FontSize="15">Listado de Pacientes</TextBlock>
-                    <ListViewItem>
-                        Luis Dario Rodriguez Inestroza
-                    </ListViewItem>
-                    <ListViewItem>
-                        Maria Trinidad Inestroza Ventura
-                    </ListViewItem>
-                    <ListViewItem>
-                        Cristian Javier Valladares Inestroza
-                    </ListViewItem>
-                    <ListViewItem>
-                        Jose Dario Rodriguez
-                    </ListViewItem>
+                <TextBlock Margin="510,50,0,422" FontWeight="UltraBold" FontSize="15">Listado de Pacientes</TextBlock>
+                <ListBox HorizontalAlignment="Right"
+                         x:Name="lbListaPacientes" Margin="0,78,0,0" RenderTransformOrigin="0.5,0.5" Width="296">
                 </ListBox>
                 <!--Formulario-->
                 <TextBox
@@ -179,7 +168,7 @@
                     <ComboBoxItem>
                         Negra
                     </ComboBoxItem>
-            
+
                 </ComboBox>
                 <ComboBox
                     x:Name="cbEstadoCivil"
@@ -201,7 +190,7 @@
                     </ComboBoxItem>
 
                 </ComboBox>
-                
+
                 <ComboBox
                     x:Name="cbReligion"
                     VerticalAlignment="Top"
@@ -212,7 +201,7 @@
                         Catolico
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        Evangelico 
+                        Evangelico
                     </ComboBoxItem>
                     <ComboBoxItem>
                         Mormon
@@ -228,7 +217,7 @@
                     </ComboBoxItem>
 
                 </ComboBox>
-                
+
                 <!--Button de agregar paciente-->
 
                 <Button 

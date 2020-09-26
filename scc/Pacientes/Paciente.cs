@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 // Namespace de SQL
 using System.Data;
 using System.Data.SqlClient;
+using System.IO.Packaging;
 
 namespace scc.Pacientes
 {
@@ -113,6 +114,51 @@ namespace scc.Pacientes
 
 
 
+        }
+
+        // Metodo para listar todos los pacientes por el nombre
+        public static List<Paciente> ListarPaciente()
+        {
+            List<Paciente> paciente = new List<Paciente>();
+
+            Conexion conexion = new Conexion(@"(local)\sqlexpress", "scc");
+            string sql;
+            
+
+            // Query para listar todos los pacientes
+            sql = @"SELECT nombrePaciente FROM scc.Paciente";
+
+            // Comando
+            SqlCommand cmd = conexion.EjecutarComando(sql);
+
+            try
+            {
+                // Establecer la conexion
+                conexion.EstablecerConexion();
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    Paciente listaPaciente = new Paciente();
+                    listaPaciente.nombrePaciente = rdr.GetString(0);
+
+                    paciente.Add(listaPaciente);
+                }
+
+                return paciente;
+            }
+            catch (Exception)
+            {
+
+                return paciente;
+
+            }
+            finally
+            {
+
+                conexion.CerrarConexion();
+            }
+           
         }
 
 

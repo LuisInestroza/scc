@@ -24,12 +24,56 @@ namespace scc
         public Paciente()
         {
             InitializeComponent();
+            listaPaciente();
         }
 
-        private void LimpiarText()
+        /// <summary>
+        /// Metodo para listar pacientes almacenados en 
+        /// la base de datos
+        /// </summary>
+        public void listaPaciente()
         {
+            // Llamar la clase
+            Pacientes.Paciente nuevo = new Pacientes.Paciente();
+            // Crear la lista
+            List<Pacientes.Paciente> lista = Pacientes.Paciente.ListarPaciente();
+
+            lbListaPacientes.Items.Clear();
+            // Mostrar todos los pacientes
+            if (lista.Any())
+            {
+                lista.ForEach(paciente => lbListaPacientes.Items.Add(paciente.nombrePaciente.ToString()));
+            }
+            else
+            {
+                MessageBox.Show("No hay registros", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+        private void Limpiar()
+        {
+            listaPaciente();
+            txtCorreo.Text = "";
+            txtDireccion.Text = "";
+            txtEdad.Text = "";
+            txtIdentidad.Text = "";
+            txtLugarNacimiento.Text = "";
+            txtLugarResidencia.Text = "";
+            txtNombre.Text = "";
+            txtTelefonos.Text = "";
+            cbEscolaridad.Text = "";
+            cbEstadoCivil.Text = "";
+            cbRaza.Text = "";
+            cbReligion.Text = "";
+            cbSexo.Text = "";
+            dpFechaNaciemiento.Text = "";
+            
 
         }
+        /// <summary>
+        /// Metodo del buton para agreagar los pacientes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAgregarPaciente_Click(object sender, RoutedEventArgs e)
         {
             // Validar cada campo para evitar inserciones vacias
@@ -114,10 +158,12 @@ namespace scc
                 if (Pacientes.Paciente.InsertarPaciente(agregarPaciente))
                 {
                     MessageBox.Show("Los Datos Han Sido Registrados", "Registro Guardado", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    Limpiar();
                 }
                 else
                 {
                     MessageBox.Show("Los Datos No Han Sido Registrados", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Limpiar();
                 }
 
 
@@ -125,7 +171,7 @@ namespace scc
                
                 
                
-                
+       
             }
         }
 
