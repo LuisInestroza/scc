@@ -40,7 +40,7 @@ namespace scc
             // Llamar la clase
             Usuarios.Usuario usuario = new Usuarios.Usuario();
             // Query
-            string sql = @"SELECT nombreUsuario, password FROM scc.Usuario WHERE nombreUsuario = @usuario and password = @contra";
+            string sql = @"SELECT nombreUsuario, password FROM scc.Usuario WHERE nombreUsuario = @usuario";
             // Ejecuatar el query
             SqlCommand cmd = conexion.EjecutarComando(sql);
             // Variables de los TextBox
@@ -57,7 +57,7 @@ namespace scc
                 {
                     // Ver los parametros
                     cmd.Parameters.Add("@usuario", SqlDbType.VarChar, 255).Value = nombreUsuario;
-                    cmd.Parameters.Add("@contra", SqlDbType.VarChar, 255).Value = password;
+                   
                     rdr = cmd.ExecuteReader();
                 }
 
@@ -82,10 +82,15 @@ namespace scc
                     MessageBox.Show("Ingresa tu Contraseña", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 }
-                // Virificar si hay error en el usuario y la contrasena
-                else if (nombreUsuario != usuario.nombreUsuario || password != usuario.contrasena)
+                // Si no exita un nombre de usuario registrado en la base de datos.
+                else if(usuario.nombreUsuario == null)
                 {
-                    MessageBox.Show("Usuario o Contraseña Incorrecto", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("El Usuario No Existe", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                // Virificar si la contrasena es incorrecta
+                else if ( password != usuario.contrasena)
+                {
+                    MessageBox.Show("Contraseña Incorrecta", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 }
                 else
