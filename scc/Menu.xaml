@@ -3,6 +3,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -12,17 +14,36 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         WindowStartupLocation="CenterScreen"
-        Title="SISTEMA CONSULTORIO CLINICO">
-    <StackPanel Background="White">
-        <Grid Height="80">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10,0">
-                <Button Uid="0" Width="170" Content="PACIENTES" FontWeight="UltraBold" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000"/>
-                <Button Uid="0" Width="170" Content="HISTORIA CLINICA" FontWeight="UltraBold" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000"/>
-                <Button Uid="0" Width="170" Content="REPORTES" FontWeight="UltraBold" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000"/>
-            </StackPanel>
-            <Grid x:Name="gridCursor" Width="170" Height="5" Background="#000000" HorizontalAlignment="Left" Margin="10,0"/>
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        >
+    <Grid>
+        <Grid VerticalAlignment="Top" Height="60" Background="#933AAD">
+            <TextBlock Text="SISTEMA CONSULTORIO CLINICO" Foreground="White" VerticalAlignment="Center"
+                       FontSize="20" FontWeight="UltraBold" Margin="10,0"/>
+            <Button x:Name="btnCloseWindow" Click="btnCloseWindow_Click" HorizontalAlignment="Right"  VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
+                <materialDesign:PackIcon Kind="Close" Foreground="White" Height="20" Width="20"/>
+            </Button>
+            <Button x:Name="btnWindowMinimize" Click="btnWindowMinimize_Click" HorizontalAlignment="Right" Margin="60,0" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
+                <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White"  Height="20" Width="20"/>
+            </Button>
+            <Button x:Name="btnLogout" Click="btnLogout_Click" HorizontalAlignment="Right" Margin="120,0" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
+                <materialDesign:PackIcon Kind="Logout" Foreground="White"  Height="20" Width="20"/>
+            </Button>
+          
         </Grid>
+        <Grid  Margin="0,60,0,0">
+            <dragablz:TabablzControl FontSize="15" FontWeight="UltraBold">
+                <dragablz:TabablzControl.InterTabController>
+                    <dragablz:InterTabController/>
+                </dragablz:TabablzControl.InterTabController>
+                <TabItem Header="Pacientes"></TabItem>
+                <TabItem Header="Historial"></TabItem>
+                <TabItem Header="Reportes"></TabItem>
+            </dragablz:TabablzControl>
 
-
-    </StackPanel>
+        </Grid>
+        
+    </Grid>
+ 
 </Window>

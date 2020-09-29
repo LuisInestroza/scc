@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace scc
 {
     /// <summary>
@@ -22,6 +23,26 @@ namespace scc
         public Menu()
         {
             InitializeComponent();
+        }
+
+ 
+        private void btnCloseWindow_Click(object sender, RoutedEventArgs e)
+        {
+            // Cerrar la app y temrinar el proceso completo
+            Application.Current.Shutdown();
+        }
+
+        private void btnWindowMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow abrirLogin = new MainWindow();
+            this.Close();
+            abrirLogin.Show();
+
         }
     }
 }

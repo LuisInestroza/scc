@@ -28,10 +28,7 @@ namespace scc
             InitializeComponent();
         }
 
-        private void PackIcon_ColorChanged(object sender, RoutedPropertyChangedEventArgs<Color> e)
-        {
-
-        }
+    
 
         private void btnInisiarSesion_Click(object sender, RoutedEventArgs e)
         {
@@ -121,6 +118,16 @@ namespace scc
             
            
 
+        }
+
+        private void btnCloseWindowLogin_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void btnWindowMinimizeLogin_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
         }
     }
 }
