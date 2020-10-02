@@ -18,11 +18,11 @@
 
     <Grid>
         <Grid VerticalAlignment="Top">
-           
-            <Button x:Name="btnCloseWindowLogin" Click="btnCloseWindowLogin_Click"  HorizontalAlignment="Right"  VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
+
+            <Button x:Name="btnCloseWindowLogin" Click="btnCloseWindowLogin_Click" Style="{StaticResource MaterialDesignIconButton}"  ToolTip="Cerrar Ventana" HorizontalAlignment="Right"  VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
                 <materialDesign:PackIcon Kind="Close" Foreground="Black" Height="20" Width="20"/>
             </Button>
-            <Button x:Name="btnWindowMinimizeLogin" Click="btnWindowMinimizeLogin_Click" HorizontalAlignment="Right" Margin="60,0" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
+            <Button x:Name="btnWindowMinimizeLogin" Click="btnWindowMinimizeLogin_Click" Style="{StaticResource MaterialDesignIconButton}"  ToolTip="Minimizar Ventana" HorizontalAlignment="Right" Margin="60,0" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
                 <materialDesign:PackIcon Kind="WindowMinimize" Foreground="Black"  Height="20" Width="20"/>
             </Button>
            

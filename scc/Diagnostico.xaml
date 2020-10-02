@@ -13,82 +13,45 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
+       
+        WindowStyle="None"
         Height="450" Width="800" WindowStartupLocation="CenterScreen" Visibility="Visible" ResizeMode="CanMinimize">
     <Grid>
         <materialDesign:Card>
             <Grid>
-                <GroupBox Header="DIAGNOSTICO DE ENFERMEDAD" HorizontalAlignment="Left" Height="421" Width="800" VerticalAlignment="Top" RenderTransformOrigin="-3.102,0.759" Margin="0,0,-6,0">
-                    <GroupBox.HeaderTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <TextBlock
-                           Margin="30,0,0,0"
-                           FontSize="25"
-                           FontWeight="UltraBold"
-                           VerticalAlignment="Center"
-                           Style="{StaticResource MaterialDesignSubtitle1TextBlock
-                                    }"
-                           Text="{Binding}" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </GroupBox.HeaderTemplate>
-                </GroupBox>
+                <Grid VerticalAlignment="Top" Height="60" Background="#933AAD">
+                    <TextBlock Text="DIAGNOSTICO DE ENFERMEDAD" Foreground="White" VerticalAlignment="Center"
+                       FontSize="20" FontWeight="UltraBold" Margin="10,0"/>
+                    <Button x:Name="btnClose" Click="btnClose_Click" Style="{StaticResource MaterialDesignIconButton}"  ToolTip="Cerrar Ventana"  HorizontalAlignment="Right"  VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
+                        <materialDesign:PackIcon Kind="Close" Foreground="White" Height="20" Width="20"/>
+                    </Button>
+                    <Button x:Name="btnMinimize" Click="btnMinimize_Click" Style="{StaticResource MaterialDesignIconButton}"  ToolTip="Minimizar Ventana"   HorizontalAlignment="Right" Margin="60,0" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
+                        <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White"  Height="20" Width="20"/>
+                    </Button>
+                
+
+                </Grid>
                 <TextBox
-               
+                    x:Name="txtBuscarCIE"
                     materialDesign:HintAssist.Hint="BUSCAR CIE"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                     Width="350"
                     VerticalAlignment="Top"
                     Height="45" 
                     FontSize="15" Margin="0,60,400,0"/>
+                <Button x:Name="btnBuscarDiagnostico" Click="btnBuscarDiagnostico_Click" VerticalAlignment="Top" Margin="422,75,178,0"> Buscar</Button>
 
                 <DataGrid
+                    x:Name="dgDiagnosticoCIE"
+                    
+            
                   ItemsSource="{Binding Items1}"
                   CanUserAddRows="False"
-                  AutoGenerateColumns="False"
+                  AutoGenerateColumns="True"
                   HeadersVisibility="All" Margin="0,127,0,0">       
-                    <DataGrid.Resources>
-                       
-                    </DataGrid.Resources>
-                    <DataGrid.Columns>
-                        <DataGridCheckBoxColumn
-                          Binding="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}"
-                          ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}"
-                          EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}">  
-                            <DataGridCheckBoxColumn.Header>
-                                <Border
-                                Background="Transparent">
-                                    <CheckBox
-                                    IsChecked="{Binding Data.IsAllItems1Selected}" />
-                                </Border>
-                            </DataGridCheckBoxColumn.Header>
-                            <DataGridCheckBoxColumn.HeaderStyle>
-                                <Style
-                                      TargetType="{x:Type DataGridColumnHeader}"
-                                      BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
-                                    <Setter
-                                        Property="HorizontalContentAlignment"
-                                        Value="Center" />   
-                                </Style>
-                            </DataGridCheckBoxColumn.HeaderStyle>
-                        </DataGridCheckBoxColumn>
-                        <DataGridTextColumn
-                          Binding="{Binding Code}"
-                          Header="CODIGO"
-                          ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}"
-                          EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
-                                            <!-- if you want to use the pop up style (MaterialDesignDataGridTextColumnPopupEditingStyle), you must use MaterialDataGridTextColumn -->
-                        <materialDesign:DataGridTextColumn
-                              Header="ENFERMEDAD"
-                              ElementStyle="{StaticResource MaterialDesignDataGridTextColumnStyle}"
-                              EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">     
-                          
-                        </materialDesign:DataGridTextColumn>
-                        
-                        
-                        
-                    </DataGrid.Columns>
+                    
                 </DataGrid>
+                
 
             </Grid>
         </materialDesign:Card>

@@ -25,7 +25,7 @@ namespace scc
             InitializeComponent();
         }
 
- 
+       
         private void btnCloseWindow_Click(object sender, RoutedEventArgs e)
         {
             // Cerrar la app y temrinar el proceso completo
@@ -44,5 +44,26 @@ namespace scc
             abrirLogin.Show();
 
         }
+
+        private void btnFromPaciente_Click(object sender, RoutedEventArgs e)
+        {
+
+          
+        }
+
+        private void btnFromHistorial_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+       
+
+        private void btnFromReporte_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
+
+     
+    
 }
