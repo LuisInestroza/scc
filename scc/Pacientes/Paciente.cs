@@ -14,6 +14,7 @@ namespace scc.Pacientes
     class Paciente
     {
         // Propiedades de la clase paciente
+        public int idPaciente { get; set; }
         public string nombrePaciente { get; set; }
         public string identidadPaciente { get; set; }
         public int edad { get; set; }
@@ -160,6 +161,8 @@ namespace scc.Pacientes
             }
            
         }
+
+      
 
 
 

@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using scc.Pacientes;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace scc
 {
@@ -75,6 +78,75 @@ namespace scc
             txtBlockFechaIngreso.Text = date.ToShortTimeString() + " " + " " + date.ToLongDateString();
         }
 
-        
+        private void btnBuscarPaciente_Click(object sender, RoutedEventArgs e)
+        {
+            Conexion conexion = new Conexion(@"(local)\sqlexpress", "scc");
+            Pacientes.Paciente paciente = new Pacientes.Paciente();
+            
+            string sql;
+
+
+            // Query para listar todos los pacientes
+            sql = @"SELECT idPaciente, nombrePaciente, edad, identidadPaciente FROM scc.Paciente WHERE identidadPaciente = @identidad";
+
+            // Comando
+            SqlCommand cmd = conexion.EjecutarComando(sql);
+
+            string identidad = txtBuscarPaciente.Text;
+            SqlDataReader rdr;
+
+            try
+            {
+                using (cmd)
+                {
+                    cmd.Parameters.Add("@identidad", SqlDbType.Char, 13).Value = identidad;
+                    rdr = cmd.ExecuteReader();
+
+                }
+                
+
+
+                while (rdr.Read())
+                {
+                    paciente.idPaciente = rdr.GetInt32(0);
+                    paciente.nombrePaciente = rdr.GetString(1);
+                    paciente.edad = rdr.GetInt32(2);
+                    paciente.identidadPaciente = rdr.GetString(3);
+                   
+                }
+                
+                if(paciente.identidadPaciente == null)
+                {
+                    MessageBox.Show("Paciente No Existe", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    tbNombrePaciente.Text = paciente.nombrePaciente;
+                    tbEdadPaciente.Text = Convert.ToString(paciente.edad) +" años";
+
+                }
+               
+               
+            }
+            catch (Exception)
+            {
+
+                throw;
+
+            }
+            finally
+            {
+
+                conexion.CerrarConexion();
+            }
+
+
+
+
+
+
+
+
+        }
     }
 }

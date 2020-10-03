@@ -34,7 +34,16 @@
                             </StackPanel>
                         </DataTemplate>
                     </GroupBox.HeaderTemplate>
+
                 </GroupBox>
+                <Button 
+                    x:Name="btnBuscarPaciente"
+                    Click="btnBuscarPaciente_Click"
+                        Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                        Width="90"
+                        FontSize="19"
+                        ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
+                        Margin="300,105,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="28" Content="Buscar"/>
                 <TextBlock 
                     x:Name="txtBlockFechaIngreso"
                     FontWeight="UltraBold"
@@ -44,19 +53,31 @@
                
                     Fecha Ingreso
                 </TextBlock>
+                <!--TEXTBOX BUSCAR PACIENTE-->
+                <TextBox
+                    
+                    x:Name="txtBuscarPaciente"
+                    materialDesign:HintAssist.Hint="Buscar Paciente Identidad"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    VerticalAlignment="Top"
+                    Height="45" 
+                    FontSize="15" 
+                    Margin="20,88,518,0"/>
                 <TextBlock 
+                    x:Name="tbNombrePaciente"
                     FontSize="15"
                     FontWeight="UltraBold"
                     VerticalAlignment="Top"
-                    Margin="20,90,381,0">
-                    Luis Dario Rodriguez Inestroza
+                    Margin="18,146,383,0">
+
                 </TextBlock>
                 <TextBlock
+                    x:Name="tbEdadPaciente"
                     FontSize="15"
                     FontWeight="UltraBold"
                     VerticalAlignment="Top"
-                    Margin="20,113,381,0">
-                    Edad 23 años
+                    Margin="20,173,381,0">
+
                 </TextBlock>
 
                 <TextBox
@@ -65,21 +86,21 @@
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     VerticalAlignment="Top"
                     Height="45" 
-                    FontSize="15" Margin="20,139,381,0"/>
+                    FontSize="15" Margin="16,195,385,0"/>
                 <TextBox
                
                     materialDesign:HintAssist.Hint="Antecedentes"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     VerticalAlignment="Top"
                     Height="45" 
-                    FontSize="15" Margin="20,189,381,0"/>
+                    FontSize="15" Margin="14,243,387,0"/>
                 <TextBox
              
                     materialDesign:HintAssist.Hint="Tratamiento"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     VerticalAlignment="Top"
                     Height="45" 
-                    FontSize="15" Margin="20,239,381,0"/>
+                    FontSize="15" Margin="14,291,387,0"/>
 
 
 
@@ -97,14 +118,14 @@
                 <DatePicker
                     Name="LocaleDatePicker"
                     Width="120"
-                    materialDesign:HintAssist.Hint="Proxima Cita" Margin="20,307,660,168" />
+                    materialDesign:HintAssist.Hint="Proxima Cita" Margin="16,347,664,128" />
 
                 <Button 
                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                     Width="290"
                     FontSize="19"
                     ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
-                    Margin="62,404,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="36">
+                    Margin="62,454,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="36">
 
 
                     GUARDAR HISTORIA CLINICA
