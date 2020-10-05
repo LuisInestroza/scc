@@ -15,6 +15,7 @@ using System.Windows.Threading;
 using scc.Pacientes;
 using System.Data.SqlClient;
 using System.Data;
+using scc.Diagnosticos;
 
 namespace scc
 {
@@ -25,9 +26,14 @@ namespace scc
     {
         System.Windows.Threading.DispatcherTimer timer = new DispatcherTimer();
 
+        // Valores para la el idPaciente, idDiagnostico
+        public int idPaciente;
+        public int idDiagnostico;
+
         public Historial()
         {
             InitializeComponent();
+            CargarGrid();
 
             // Mostrar el hora y fecha
             timer.Tick += new EventHandler(Timer_Tick);
@@ -68,7 +74,18 @@ namespace scc
            
             // Concatenar los campos de la historia clinica
             txtHistoriaClinica.AppendText(historiaClinica);
-            
+
+           
+
+
+        }
+        private void CargarGrid()
+        {
+            Diagnosticos.Diagnostico listar = new Diagnosticos.Diagnostico();
+            dgDiagnosticoCIE.ItemsSource = listar.ListarDiagnostico();
+
+
+
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -87,7 +104,7 @@ namespace scc
 
 
             // Query para listar todos los pacientes
-            sql = @"SELECT idPaciente, nombrePaciente, edad, identidadPaciente FROM scc.Paciente WHERE identidadPaciente = @identidad";
+            sql = @"SELECT idPaciente, nombrePaciente, edad, identidadPaciente, sexo FROM scc.Paciente WHERE identidadPaciente = @identidad";
 
             // Comando
             SqlCommand cmd = conexion.EjecutarComando(sql);
@@ -108,10 +125,11 @@ namespace scc
 
                 while (rdr.Read())
                 {
-                    paciente.idPaciente = rdr.GetInt32(0);
+                    idPaciente = rdr.GetInt32(0);
                     paciente.nombrePaciente = rdr.GetString(1);
                     paciente.edad = rdr.GetInt32(2);
                     paciente.identidadPaciente = rdr.GetString(3);
+                    paciente.sexo = rdr.GetString(4);
                    
                 }
                 
@@ -123,6 +141,7 @@ namespace scc
                 {
                     tbNombrePaciente.Text = paciente.nombrePaciente;
                     tbEdadPaciente.Text = Convert.ToString(paciente.edad) +" años";
+                    tbSexo.Text = paciente.sexo;
 
                 }
                
@@ -142,11 +161,44 @@ namespace scc
 
 
 
-
-
+            Console.WriteLine(idPaciente);
 
 
 
         }
+
+        private void btnBuscarDiagnostico_Click(object sender, RoutedEventArgs e)
+        {
+            Diagnosticos.Diagnostico listarCIE = new Diagnosticos.Diagnostico();
+            dgDiagnosticoCIE.ItemsSource = listarCIE.ListarDiagnosticoUnico(txtBuscarDiargnostico.Text);
+        }
+
+        private void btnSeleccionarCIE_Click(object sender, RoutedEventArgs e)
+        {
+
+            Diagnosticos.Diagnostico selecionar = dgDiagnosticoCIE.SelectedItem as Diagnosticos.Diagnostico;
+
+            if (selecionar != null)
+            {
+                int id = selecionar.id;
+                string clave = selecionar.clave;
+                string nombre = selecionar.nombre;
+
+                idDiagnostico = id;
+                tbClaveDiagnostico.Text = clave.ToString();
+                tbNombreDiagnostico.Text = nombre.ToString();
+           
+            }
+            else
+            {
+                MessageBox.Show("No hay datos seleccionados", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            
+        }
+
+
+
+   
     }
+
 }

@@ -13,13 +13,19 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Height="500" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Height="700" Width="1300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
         <materialDesign:Card>
 
             <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="43*"/>
+                    <ColumnDefinition Width="22*"/>
+                </Grid.ColumnDefinitions>
 
-                <GroupBox Header="HISTORIAL MEDICO" HorizontalAlignment="Left" Height="500" Width="800" VerticalAlignment="Top" RenderTransformOrigin="-3.102,0.759">
+                <GroupBox Header="HISTORIAL MEDICO" 
+                          HorizontalAlignment="Left" 
+                          Height="700" Width="1300" VerticalAlignment="Top" RenderTransformOrigin="-3.102,0.759" Grid.ColumnSpan="2">
                     <GroupBox.HeaderTemplate>
                         <DataTemplate>
                             <StackPanel>
@@ -35,6 +41,7 @@
                         </DataTemplate>
                     </GroupBox.HeaderTemplate>
 
+
                 </GroupBox>
                 <Button 
                     x:Name="btnBuscarPaciente"
@@ -43,13 +50,13 @@
                         Width="90"
                         FontSize="19"
                         ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
-                        Margin="300,105,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="28" Content="Buscar"/>
+                        Margin="300,105,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="36" Content="Buscar"/>
                 <TextBlock 
                     x:Name="txtBlockFechaIngreso"
                     FontWeight="UltraBold"
                     FontSize="15"
                     VerticalAlignment="Top"
-                    Margin="20,67,381,0">
+                    Margin="20,67,381,0" Grid.ColumnSpan="2">
                
                     Fecha Ingreso
                 </TextBlock>
@@ -62,13 +69,13 @@
                     VerticalAlignment="Top"
                     Height="45" 
                     FontSize="15" 
-                    Margin="20,88,518,0"/>
+                    Margin="20,88,584.169,0"/>
                 <TextBlock 
                     x:Name="tbNombrePaciente"
                     FontSize="15"
                     FontWeight="UltraBold"
                     VerticalAlignment="Top"
-                    Margin="18,146,383,0">
+                    Margin="20,146,381,0" Grid.ColumnSpan="2">
 
                 </TextBlock>
                 <TextBlock
@@ -76,7 +83,15 @@
                     FontSize="15"
                     FontWeight="UltraBold"
                     VerticalAlignment="Top"
-                    Margin="20,173,381,0">
+                    Margin="20,174,381,0" Grid.ColumnSpan="2">
+
+                </TextBlock>
+                <TextBlock
+                    x:Name="tbSexo"
+                    FontSize="15"
+                    FontWeight="UltraBold"
+                    VerticalAlignment="Top"
+                    Margin="20,197,381,0" Grid.ColumnSpan="2">
 
                 </TextBlock>
 
@@ -86,46 +101,95 @@
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     VerticalAlignment="Top"
                     Height="45" 
-                    FontSize="15" Margin="16,195,385,0"/>
+                    FontSize="15" Margin="16,215,470.169,0"/>
                 <TextBox
                
                     materialDesign:HintAssist.Hint="Antecedentes"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     VerticalAlignment="Top"
                     Height="45" 
-                    FontSize="15" Margin="14,243,387,0"/>
+                    FontSize="15" Margin="14,261,470.169,0"/>
                 <TextBox
              
                     materialDesign:HintAssist.Hint="Tratamiento"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     VerticalAlignment="Top"
                     Height="45" 
-                    FontSize="15" Margin="14,291,387,0"/>
+                    FontSize="15" Margin="14,313,470.169,0"/>
 
 
 
-                <StackPanel  Margin="424,65,10,10">
-                    <TextBox
+
+                <TextBox x:Name="txtBuscarDiargnostico"
+                             materialDesign:HintAssist.Hint="BUSCAR CIE"
+                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                            VerticalAlignment="Top"
+                            Height="45" 
+                            FontSize="15"
+                             Margin="798,64,222,0" Grid.ColumnSpan="2"/>
+                <Button x:Name="btnBuscarDiagnostico" Click="btnBuscarDiagnostico_Click" VerticalAlignment="Top" Margin="238,77,113,0" Content="Buscar" Grid.Column="1"/>
+                <DataGrid
+                    x:Name="dgDiagnosticoCIE"
+                    AutoGenerateColumns="False"
+                       VerticalScrollBarVisibility="Hidden"
+                    HorizontalScrollBarVisibility="Hidden"
+                    FontSize="15"
+                    Margin="798,127,10,105"  Grid.ColumnSpan="2" >
+
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="btnSeleccionarCIE" 
+                                            
+                                            Click="btnSeleccionarCIE_Click" 
+                                            Content="Click"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="ID" Binding="{Binding id}"/>
+                        <DataGridTextColumn Header="Clave" Binding="{Binding clave}"/>
+                        <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}"/>
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+
+                <TextBox
                         x:Name="txtHistoriaClinica"
                         Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
                         VerticalAlignment="Top"
-                        Height="420"
+                        Height="514"
                         AcceptsReturn="True"
                         TextWrapping="Wrap"
                         VerticalScrollBarVisibility="Auto"
-                        materialDesign:HintAssist.Hint="Historia Clinica"/>
-                </StackPanel>
+                        materialDesign:HintAssist.Hint="Historia Clinica" 
+                        Margin="422,81,89,0"/>
+
                 <DatePicker
                     Name="LocaleDatePicker"
-                    Width="120"
-                    materialDesign:HintAssist.Hint="Proxima Cita" Margin="16,347,664,128" />
+                    materialDesign:HintAssist.Hint="Proxima Cita" Margin="20,363,724.169,305" Height="32" />
+                <TextBlock
+                    x:Name="tbClaveDiagnostico"
+                    materialDesign:HintAssist.Hint="Tratamiento"
+                   
+                    VerticalAlignment="Top"
+                    Height="45" 
+                    FontSize="15" Margin="10,500,466.169,0"/>
+                <TextBlock
+                    x:Name="tbNombreDiagnostico"
+                    materialDesign:HintAssist.Hint="Tratamiento"
+                   
+                    VerticalAlignment="Top"
+                    Height="45" 
+                    FontSize="15" Margin="10,550,470,0"/>
 
                 <Button 
                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                     Width="290"
                     FontSize="19"
                     ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
-                    Margin="62,454,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="36">
+                    Margin="356,623,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="36">
 
 
                     GUARDAR HISTORIA CLINICA

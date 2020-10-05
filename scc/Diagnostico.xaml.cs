@@ -52,5 +52,29 @@ namespace scc
             Diagnosticos.Diagnostico listarCIE = new Diagnosticos.Diagnostico();
             dgDiagnosticoCIE.ItemsSource = listarCIE.ListarDiagnosticoUnico(txtBuscarCIE.Text);
         }
+
+        private void dgDiagnosticoCIE_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+            
+        }
+
+        private void btnSeleccionar_Click(object sender, RoutedEventArgs e)
+        {
+            Historial historial = new Historial();
+
+            DataRowView datos = dgDiagnosticoCIE.SelectedItem as DataRowView;
+            if (datos != null)
+            {
+                
+                historial.tbClaveDiagnostico.Text = datos["id"].ToString();
+
+                historial.Show();
+            }
+            else
+            {
+                MessageBox.Show("No hay datos seleccionados", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

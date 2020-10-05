@@ -15,9 +15,9 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
        
         WindowStyle="None"
-        Height="450" Width="800" WindowStartupLocation="CenterScreen" Visibility="Visible" ResizeMode="CanMinimize">
+        Height="450" Width="560" WindowStartupLocation="CenterScreen" Visibility="Visible" ResizeMode="CanMinimize">
     <Grid>
-        <materialDesign:Card>
+        <materialDesign:Card HorizontalAlignment="Left" Width="560">
             <Grid>
                 <Grid VerticalAlignment="Top" Height="60" Background="#933AAD">
                     <TextBlock Text="DIAGNOSTICO DE ENFERMEDAD" Foreground="White" VerticalAlignment="Center"
@@ -28,30 +28,38 @@
                     <Button x:Name="btnMinimize" Click="btnMinimize_Click" Style="{StaticResource MaterialDesignIconButton}"  ToolTip="Minimizar Ventana"   HorizontalAlignment="Right" Margin="60,0" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
                         <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White"  Height="20" Width="20"/>
                     </Button>
-                
+
 
                 </Grid>
                 <TextBox
                     x:Name="txtBuscarCIE"
                     materialDesign:HintAssist.Hint="BUSCAR CIE"
-                    Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                    Width="350"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     VerticalAlignment="Top"
                     Height="45" 
-                    FontSize="15" Margin="0,60,400,0"/>
-                <Button x:Name="btnBuscarDiagnostico" Click="btnBuscarDiagnostico_Click" VerticalAlignment="Top" Margin="422,75,178,0"> Buscar</Button>
+                    FontSize="15" Margin="10,68,187,0"/>
+                <Button x:Name="btnBuscarDiagnostico" Click="btnBuscarDiagnostico_Click" VerticalAlignment="Top" Margin="407,73,51,0">Buscar</Button>
 
                 <DataGrid
                     x:Name="dgDiagnosticoCIE"
                     
-            
-                  ItemsSource="{Binding Items1}"
-                  CanUserAddRows="False"
-                  AutoGenerateColumns="True"
-                  HeadersVisibility="All" Margin="0,127,0,0">       
-                    
+                    AutoGenerateColumns="False"
+                    Margin="10,127,10,10" SelectedIndex="1" >
+
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="btnSeleccionar" Content="Click" Click="btnSeleccionar_Click"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="ID" Binding="{Binding id}"/>
+                        <DataGridTextColumn Header="Clave" Binding="{Binding clave}"/>
+                        <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}"/>
+                    </DataGrid.Columns>
                 </DataGrid>
-                
+
 
             </Grid>
         </materialDesign:Card>
