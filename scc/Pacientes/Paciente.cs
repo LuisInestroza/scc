@@ -162,7 +162,108 @@ namespace scc.Pacientes
            
         }
 
-      
+        public List<Paciente> ListarPacienteBuscar()
+        {
+            Conexion conexion = new Conexion(@"(local)\sqlexpress", "scc");
+
+            string sql;
+            List<Paciente> Lista = new List<Paciente>();
+
+            // Query sql
+            sql = @"SELECT idPaciente, identidadPaciente, nombrePaciente, edad, sexo FROM scc.Paciente";
+
+            SqlCommand cmd = conexion.EjecutarComando(sql);
+
+            SqlDataReader rdr;
+
+
+            try
+            {
+
+
+                rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    Paciente resultado = new Paciente();
+                    resultado.idPaciente = rdr.GetInt32(0);
+                    resultado.identidadPaciente = rdr.GetString(1);
+                    resultado.nombrePaciente = rdr.GetString(2);
+                    resultado.edad = rdr.GetInt32(3);
+                    resultado.sexo = rdr.GetString(4);
+
+                    Lista.Add(resultado);
+
+
+                }
+
+                return Lista;
+
+
+            }
+
+            catch (SqlException)
+            {
+                return Lista;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+
+        }
+        public List<Paciente> ListarPacienteUnico(string nombre)
+        {
+            Conexion conexion = new Conexion(@"(local)\sqlexpress", "scc");
+
+            string sql;
+            List<Paciente> Lista = new List<Paciente>();
+
+            // Query sql
+            sql = @"SELECT idPaciente, identidadPaciente, nombrePaciente, edad, sexo  
+                            FROM scc.Paciente WHERE nombrePaciente LIKE '%" + @nombre + "%'";
+
+            SqlCommand cmd = conexion.EjecutarComando(sql);
+
+            SqlDataReader rdr;
+
+            try
+            {
+                using (cmd)
+                {
+                    cmd.Parameters.Add("@nombre", SqlDbType.Text).Value = nombre;
+
+                }
+                rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    Paciente resultado = new Paciente();
+                    resultado.idPaciente = rdr.GetInt32(0);
+                    resultado.identidadPaciente = rdr.GetString(1);
+                    resultado.nombrePaciente = rdr.GetString(2);
+                    resultado.edad = rdr.GetInt32(3);
+                    resultado.sexo = rdr.GetString(4);
+
+
+
+                    Lista.Add(resultado);
+                }
+
+                return Lista;
+
+            }
+            catch (Exception)
+            {
+
+                return Lista;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+        }
+
+
 
 
 

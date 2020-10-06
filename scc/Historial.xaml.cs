@@ -17,6 +17,7 @@ using System.Data.SqlClient;
 using System.Data;
 using scc.Diagnosticos;
 
+
 namespace scc
 {
     /// <summary>
@@ -33,7 +34,8 @@ namespace scc
         public Historial()
         {
             InitializeComponent();
-            CargarGrid();
+            
+            
 
             // Mostrar el hora y fecha
             timer.Tick += new EventHandler(Timer_Tick);
@@ -75,18 +77,11 @@ namespace scc
             // Concatenar los campos de la historia clinica
             txtHistoriaClinica.AppendText(historiaClinica);
 
-           
+            
 
 
         }
-        private void CargarGrid()
-        {
-            Diagnosticos.Diagnostico listar = new Diagnosticos.Diagnostico();
-            dgDiagnosticoCIE.ItemsSource = listar.ListarDiagnostico();
-
-
-
-        }
+        
 
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -97,104 +92,24 @@ namespace scc
 
         private void btnBuscarPaciente_Click(object sender, RoutedEventArgs e)
         {
-            Conexion conexion = new Conexion(@"(local)\sqlexpress", "scc");
-            Pacientes.Paciente paciente = new Pacientes.Paciente();
+            BuscarPaciente abrirForm = new BuscarPaciente();
+            this.Hide();
+            abrirForm.ShowDialog();
+         
             
-            string sql;
-
-
-            // Query para listar todos los pacientes
-            sql = @"SELECT idPaciente, nombrePaciente, edad, identidadPaciente, sexo FROM scc.Paciente WHERE identidadPaciente = @identidad";
-
-            // Comando
-            SqlCommand cmd = conexion.EjecutarComando(sql);
-
-            string identidad = txtBuscarPaciente.Text;
-            SqlDataReader rdr;
-
-            try
-            {
-                using (cmd)
-                {
-                    cmd.Parameters.Add("@identidad", SqlDbType.Char, 13).Value = identidad;
-                    rdr = cmd.ExecuteReader();
-
-                }
-                
-
-
-                while (rdr.Read())
-                {
-                    idPaciente = rdr.GetInt32(0);
-                    paciente.nombrePaciente = rdr.GetString(1);
-                    paciente.edad = rdr.GetInt32(2);
-                    paciente.identidadPaciente = rdr.GetString(3);
-                    paciente.sexo = rdr.GetString(4);
-                   
-                }
-                
-                if(paciente.identidadPaciente == null)
-                {
-                    MessageBox.Show("Paciente No Existe", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-                else
-                {
-                    tbNombrePaciente.Text = paciente.nombrePaciente;
-                    tbEdadPaciente.Text = Convert.ToString(paciente.edad) +" años";
-                    tbSexo.Text = paciente.sexo;
-
-                }
-               
-               
-            }
-            catch (Exception)
-            {
-
-                throw;
-
-            }
-            finally
-            {
-
-                conexion.CerrarConexion();
-            }
-
-
-
-            Console.WriteLine(idPaciente);
-
 
 
         }
 
         private void btnBuscarDiagnostico_Click(object sender, RoutedEventArgs e)
         {
-            Diagnosticos.Diagnostico listarCIE = new Diagnosticos.Diagnostico();
-            dgDiagnosticoCIE.ItemsSource = listarCIE.ListarDiagnosticoUnico(txtBuscarDiargnostico.Text);
+            Diagnostico abrir = new Diagnostico();
+            this.Hide();
+ 
+            abrir.ShowDialog();
         }
 
-        private void btnSeleccionarCIE_Click(object sender, RoutedEventArgs e)
-        {
-
-            Diagnosticos.Diagnostico selecionar = dgDiagnosticoCIE.SelectedItem as Diagnosticos.Diagnostico;
-
-            if (selecionar != null)
-            {
-                int id = selecionar.id;
-                string clave = selecionar.clave;
-                string nombre = selecionar.nombre;
-
-                idDiagnostico = id;
-                tbClaveDiagnostico.Text = clave.ToString();
-                tbNombreDiagnostico.Text = nombre.ToString();
-           
-            }
-            else
-            {
-                MessageBox.Show("No hay datos seleccionados", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            
-        }
+      
 
 
 

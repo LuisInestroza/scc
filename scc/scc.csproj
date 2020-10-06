@@ -66,8 +66,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BuscarPaciente.xaml.cs">
+      <DependentUpon>BuscarPaciente.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Diagnosticos\Diagnostico.cs" />
     <Compile Include="Usuarios\Usuario.cs" />
+    <Page Include="BuscarPaciente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Diagnostico.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

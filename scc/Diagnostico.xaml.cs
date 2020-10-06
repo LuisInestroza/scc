@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 
 using scc.Diagnosticos;
 
+
 namespace scc
 {
     /// <summary>
@@ -53,28 +54,38 @@ namespace scc
             dgDiagnosticoCIE.ItemsSource = listarCIE.ListarDiagnosticoUnico(txtBuscarCIE.Text);
         }
 
-        private void dgDiagnosticoCIE_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-            
-        }
-
+      
         private void btnSeleccionar_Click(object sender, RoutedEventArgs e)
         {
             Historial historial = new Historial();
+            Diagnosticos.Diagnostico selecionar = dgDiagnosticoCIE.SelectedItem as Diagnosticos.Diagnostico;
 
-            DataRowView datos = dgDiagnosticoCIE.SelectedItem as DataRowView;
-            if (datos != null)
+
+            if (selecionar != null)
             {
-                
-                historial.tbClaveDiagnostico.Text = datos["id"].ToString();
+                int id = selecionar.id;
+                string clave = selecionar.clave;
+                string nombre = selecionar.nombre;
 
+                historial.idDiagnostico = id;
+                historial.tbClaveDiagnostico.Text = clave.ToString();
+                historial.tbNombreDiagnostico.Text = nombre.ToString();
+                MessageBox.Show("Datos Seleccionados", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                
+                this.Close();
                 historial.Show();
+                
+
+
+
             }
             else
             {
                 MessageBox.Show("No hay datos seleccionados", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
+
+
         }
     }
 }

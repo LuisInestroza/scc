@@ -1,0 +1,139 @@
+﻿<Window x:Class="scc.BuscarPaciente"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:scc"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Visibility="Visible" ResizeMode="CanMinimize"
+        Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="47*"/>
+            <RowDefinition Height="103*"/>
+        </Grid.RowDefinitions>
+        <materialDesign:Card Grid.RowSpan="2">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="415*"/>
+                    <ColumnDefinition Width="157*"/>
+                    <ColumnDefinition Width="220*"/>
+                    <ColumnDefinition Width="0*"/>
+                </Grid.ColumnDefinitions>
+
+
+
+
+                <GroupBox Header="Buscar Paciente" 
+                          HorizontalAlignment="Left" 
+                          Height="450" Width="800" VerticalAlignment="Top" RenderTransformOrigin="-3.102,0.759" Grid.ColumnSpan="4" Margin="0,0,-8,-8">
+                    <GroupBox.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock
+                           Margin="30,0,0,0"
+                           FontSize="25"
+                           FontWeight="UltraBold"
+                           VerticalAlignment="Center"
+                           Style="{StaticResource MaterialDesignSubtitle1TextBlock
+                                    }"
+                           Text="{Binding}" />
+                            </StackPanel>
+                        </DataTemplate>
+
+                    </GroupBox.HeaderTemplate>
+
+
+
+
+
+                </GroupBox>
+                <Button 
+                    x:Name="btnMinimizar"
+                    Click="btnMinimizar_Click"
+                    HorizontalAlignment="Left" Margin="107,0,0,0" 
+                    VerticalAlignment="Top" 
+                    Height="44" Width="46"
+                   Style="{StaticResource MaterialDesignIconButton}"  
+                        ToolTip="Minimizar Pantalla"
+                        
+                         Background="{x:Null}" BorderBrush="{x:Null}" Grid.Column="2">
+                    <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White"  Height="20" Width="20"/>
+                </Button>
+                <Button  x:Name="btnCerrarVentana"
+                         Click="btnCerrarVentana_Click"
+                            Margin="164,0,0,406" VerticalAlignment="Bottom" 
+                         Height="44" Width="48"
+                        Style="{StaticResource MaterialDesignIconButton}"  
+                        ToolTip="Cerrar Ventana"
+                        HorizontalAlignment="Left" 
+                         Background="{x:Null}" BorderBrush="{x:Null}"  Grid.Column="2">
+                    <materialDesign:PackIcon Kind="Close" Foreground="White" Height="20" Width="20"/>
+
+
+                </Button>
+
+
+
+
+
+            </Grid>
+
+
+        </materialDesign:Card>
+        <TextBox
+                    x:Name="txtBuscarPacientes"
+                    materialDesign:HintAssist.Hint="Buscar Paciente"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    VerticalAlignment="Top"
+                    Height="45" 
+                    FontSize="15" 
+                    Margin="20,70,536,0"/>
+        <Button 
+                    x:Name="btnBuscarPacientes"
+            Click="btnBuscarPacientes_Click"
+                   
+                        Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                        Width="90"
+                        FontSize="19"
+                        ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
+                        Margin="304,82,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="36" Content="Buscar"/>
+
+        <DataGrid
+                    x:Name="dgListaPacientes"
+                    
+                    AutoGenerateColumns="False"
+                    Margin="10,127,10,10" SelectedIndex="1" Grid.RowSpan="2" >
+
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnSeleccionarPaciente" 
+                                            Content="Click" 
+                                    Click="btnSeleccionarPaciente_Click"
+                                          />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="ID" Binding="{Binding idPaciente}"/>
+                <DataGridTextColumn Header="Identidad" Binding="{Binding identidadPaciente}"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding nombrePaciente}"/>
+                <DataGridTextColumn Header="Edad" Binding="{Binding edad}"/>
+                <DataGridTextColumn Header="Sexo" Binding="{Binding sexo}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

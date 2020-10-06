@@ -13,19 +13,25 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Height="700" Width="1300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Height="700" Width="1000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
         <materialDesign:Card>
 
             <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="169*"/>
+                    <RowDefinition Height="363*"/>
+                    <RowDefinition Height="97*"/>
+                    <RowDefinition Height="71*"/>
+                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="43*"/>
-                    <ColumnDefinition Width="22*"/>
+                    <ColumnDefinition Width="823*"/>
+                    <ColumnDefinition Width="477*"/>
                 </Grid.ColumnDefinitions>
 
                 <GroupBox Header="HISTORIAL MEDICO" 
                           HorizontalAlignment="Left" 
-                          Height="700" Width="1300" VerticalAlignment="Top" RenderTransformOrigin="-3.102,0.759" Grid.ColumnSpan="2">
+                          Height="700" Width="1000" VerticalAlignment="Top" RenderTransformOrigin="-3.102,0.759" Grid.ColumnSpan="2" Grid.RowSpan="4">
                     <GroupBox.HeaderTemplate>
                         <DataTemplate>
                             <StackPanel>
@@ -42,58 +48,65 @@
                     </GroupBox.HeaderTemplate>
 
 
+
+
                 </GroupBox>
                 <Button 
                     x:Name="btnBuscarPaciente"
                     Click="btnBuscarPaciente_Click"
                         Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                        Width="90"
-                        FontSize="19"
+                        Width="168"
+                        FontSize="15"
                         ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
-                        Margin="300,105,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="36" Content="Buscar"/>
+                        Margin="191,10,0,0" VerticalAlignment="Top"
+                    HorizontalAlignment="Left" Height="39" 
+                    Content="BUSCAR PACIENTE" Grid.Row="3"/>
                 <TextBlock 
                     x:Name="txtBlockFechaIngreso"
                     FontWeight="UltraBold"
                     FontSize="15"
                     VerticalAlignment="Top"
-                    Margin="20,67,381,0" Grid.ColumnSpan="2">
+                    Margin="20,67,223,0" Height="18">
                
                     Fecha Ingreso
                 </TextBlock>
                 <!--TEXTBOX BUSCAR PACIENTE-->
-                <TextBox
-                    
-                    x:Name="txtBuscarPaciente"
-                    materialDesign:HintAssist.Hint="Buscar Paciente Identidad"
-                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                    VerticalAlignment="Top"
-                    Height="45" 
-                    FontSize="15" 
-                    Margin="20,88,584.169,0"/>
+                <TextBlock x:Name="tbDatosPaciente"
+                           Text="DATOS PACIENTE"
+                           Margin="20,101,223,0"
+                           VerticalAlignment="Top"
+                           Height="27"
+                           FontWeight="UltraBold"
+                           FontSize="20"
+                           />
                 <TextBlock 
                     x:Name="tbNombrePaciente"
                     FontSize="15"
                     FontWeight="UltraBold"
                     VerticalAlignment="Top"
-                    Margin="20,146,381,0" Grid.ColumnSpan="2">
-
-                </TextBlock>
+                    Text="NombrePaciente"
+                    Margin="20,141,223,0" Height="18"/>
+                <TextBlock 
+                        x:Name="tbIdentidadPaciente"
+                        FontSize="15"
+                        FontWeight="UltraBold"
+                        VerticalAlignment="Top"
+                        Text="Identidad Paciente"
+                        Margin="20,0,223,0" Height="18" Width="390" Grid.Row="1"/>
                 <TextBlock
+                    Text="Edad Paciente"
                     x:Name="tbEdadPaciente"
                     FontSize="15"
                     FontWeight="UltraBold"
                     VerticalAlignment="Top"
-                    Margin="20,174,381,0" Grid.ColumnSpan="2">
-
-                </TextBlock>
+                    Margin="20,27,223,0" Height="18" Grid.Row="1"/>
                 <TextBlock
+                    Text="Sexo Paciente"
                     x:Name="tbSexo"
                     FontSize="15"
                     FontWeight="UltraBold"
                     VerticalAlignment="Top"
-                    Margin="20,197,381,0" Grid.ColumnSpan="2">
-
-                </TextBlock>
+                    Margin="20,52,223,0" Height="18" Grid.Row="1"/>
 
                 <TextBox
                
@@ -101,58 +114,30 @@
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     VerticalAlignment="Top"
                     Height="45" 
-                    FontSize="15" Margin="16,215,470.169,0"/>
+                    FontSize="15" Margin="16,78,243,0" Grid.Row="1"/>
                 <TextBox
                
                     materialDesign:HintAssist.Hint="Antecedentes"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     VerticalAlignment="Top"
                     Height="45" 
-                    FontSize="15" Margin="14,261,470.169,0"/>
+                    FontSize="15" Margin="18,134,239,0" Grid.Row="1"/>
                 <TextBox
              
                     materialDesign:HintAssist.Hint="Tratamiento"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     VerticalAlignment="Top"
                     Height="45" 
-                    FontSize="15" Margin="14,313,470.169,0"/>
-
-
-
-
-                <TextBox x:Name="txtBuscarDiargnostico"
-                             materialDesign:HintAssist.Hint="BUSCAR CIE"
-                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                            VerticalAlignment="Top"
-                            Height="45" 
-                            FontSize="15"
-                             Margin="798,64,222,0" Grid.ColumnSpan="2"/>
-                <Button x:Name="btnBuscarDiagnostico" Click="btnBuscarDiagnostico_Click" VerticalAlignment="Top" Margin="238,77,113,0" Content="Buscar" Grid.Column="1"/>
-                <DataGrid
-                    x:Name="dgDiagnosticoCIE"
-                    AutoGenerateColumns="False"
-                       VerticalScrollBarVisibility="Hidden"
-                    HorizontalScrollBarVisibility="Hidden"
-                    FontSize="15"
-                    Margin="798,127,10,105"  Grid.ColumnSpan="2" >
-
-                    <DataGrid.Columns>
-                        <DataGridTemplateColumn>
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button x:Name="btnSeleccionarCIE" 
-                                            
-                                            Click="btnSeleccionarCIE_Click" 
-                                            Content="Click"/>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTextColumn Header="ID" Binding="{Binding id}"/>
-                        <DataGridTextColumn Header="Clave" Binding="{Binding clave}"/>
-                        <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}"/>
-                    </DataGrid.Columns>
-
-                </DataGrid>
+                    FontSize="15" Margin="18,193,239,0" Grid.Row="1"/>
+                <Button x:Name="btnBuscarDiagnostico" 
+                         Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+                        Click="btnBuscarDiagnostico_Click" 
+                        VerticalAlignment="Top" 
+                        Margin="625,10,181,0" 
+                        FontSize="15"
+                      
+                        Content="BUSCAR DIAGNOSTICO" Height="38" Grid.Row="3" Grid.ColumnSpan="2"/>
 
 
                 <TextBox
@@ -164,32 +149,46 @@
                         TextWrapping="Wrap"
                         VerticalScrollBarVisibility="Auto"
                         materialDesign:HintAssist.Hint="Historia Clinica" 
-                        Margin="422,81,89,0"/>
+                        Margin="422,81,0,0" HorizontalAlignment="Left" Width="530" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
 
                 <DatePicker
                     Name="LocaleDatePicker"
-                    materialDesign:HintAssist.Hint="Proxima Cita" Margin="20,363,724.169,305" Height="32" />
+                    materialDesign:HintAssist.Hint="Proxima Cita" Margin="19,258,491,73" Height="32" Grid.Row="1" />
+
+                <!--DATOS PACIENTE-->
+                <TextBlock x:Name="tbDatosDiagnostico"
+                        Text="DATOS DIAGNOSTICO"
+                        Margin="20,318,223,0"
+                        VerticalAlignment="Top"
+                        Height="35"
+                        FontWeight="UltraBold"
+                        FontSize="20"
+                           Width="390" Grid.Row="1"
+                           />
                 <TextBlock
                     x:Name="tbClaveDiagnostico"
                     materialDesign:HintAssist.Hint="Tratamiento"
-                   
+                    Text="Clave Diagnostico"
+                    FontSize="15"
+                    FontWeight="UltraBold"
                     VerticalAlignment="Top"
-                    Height="45" 
-                    FontSize="15" Margin="10,500,466.169,0"/>
+                    Height="18"
+                    Margin="22,362,223,0" Grid.Row="1" Grid.RowSpan="2"/>
                 <TextBlock
                     x:Name="tbNombreDiagnostico"
+                    Text="Nombre Enfermedad"
                     materialDesign:HintAssist.Hint="Tratamiento"
-                   
+                    FontWeight="UltraBold"
                     VerticalAlignment="Top"
-                    Height="45" 
-                    FontSize="15" Margin="10,550,470,0"/>
+                    Height="18" 
+                    FontSize="15" Margin="20,27,227,0" Grid.Row="2"/>
 
                 <Button 
                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
-                    Width="290"
-                    FontSize="19"
+                    Width="239"
+                    FontSize="15"
                     ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
-                    Margin="356,623,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="36">
+                    Margin="374,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="39" Grid.Row="3">
 
 
                     GUARDAR HISTORIA CLINICA

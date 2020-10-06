@@ -15,30 +15,59 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
        
         WindowStyle="None"
-        Height="450" Width="560" WindowStartupLocation="CenterScreen" Visibility="Visible" ResizeMode="CanMinimize">
+        Height="450" Width="800" WindowStartupLocation="CenterScreen" Visibility="Visible" ResizeMode="CanMinimize">
     <Grid>
-        <materialDesign:Card HorizontalAlignment="Left" Width="560">
+        <materialDesign:Card HorizontalAlignment="Left" Width="800">
             <Grid>
-                <Grid VerticalAlignment="Top" Height="60" Background="#933AAD">
-                    <TextBlock Text="DIAGNOSTICO DE ENFERMEDAD" Foreground="White" VerticalAlignment="Center"
-                       FontSize="20" FontWeight="UltraBold" Margin="10,0"/>
-                    <Button x:Name="btnClose" Click="btnClose_Click" Style="{StaticResource MaterialDesignIconButton}"  ToolTip="Cerrar Ventana"  HorizontalAlignment="Right"  VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
-                        <materialDesign:PackIcon Kind="Close" Foreground="White" Height="20" Width="20"/>
-                    </Button>
-                    <Button x:Name="btnMinimize" Click="btnMinimize_Click" Style="{StaticResource MaterialDesignIconButton}"  ToolTip="Minimizar Ventana"   HorizontalAlignment="Right" Margin="60,0" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
-                        <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White"  Height="20" Width="20"/>
-                    </Button>
+                <GroupBox Header="Buscar Enfermedad CIE-10" 
+  
+                          Height="450" 
+                          VerticalAlignment="Top" 
+                          RenderTransformOrigin="-3.102,0.759" >
+                    <GroupBox.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock
+                           Margin="30,0,0,0"
+                           FontSize="25"
+                           FontWeight="UltraBold"
+                           VerticalAlignment="Center"
+                           Style="{StaticResource MaterialDesignSubtitle1TextBlock
+                                    }"
+                           Text="{Binding}" />
+                            </StackPanel>
+                        </DataTemplate>
+
+                    </GroupBox.HeaderTemplate>
 
 
-                </Grid>
+
+
+
+                </GroupBox>
+
+                <Button x:Name="btnClose" Click="btnClose_Click" 
+                            Style="{StaticResource MaterialDesignIconButton}"  
+                            Margin="0,0,12,402" 
+                            ToolTip="Cerrar Ventana"  HorizontalAlignment="Right"  
+                            VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon Kind="Close" Foreground="White" Height="20" Width="20"/>
+                </Button>
+                <Button x:Name="btnMinimize" Click="btnMinimize_Click" 
+                            Style="{StaticResource MaterialDesignIconButton}"  
+                            ToolTip="Minimizar Ventana"   
+                            HorizontalAlignment="Right" Margin="0,0,66,402" VerticalAlignment="Center" 
+                            Background="{x:Null}" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White"  Height="20" Width="20"/>
+                </Button>
                 <TextBox
                     x:Name="txtBuscarCIE"
                     materialDesign:HintAssist.Hint="BUSCAR CIE"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     VerticalAlignment="Top"
                     Height="45" 
-                    FontSize="15" Margin="10,68,187,0"/>
-                <Button x:Name="btnBuscarDiagnostico" Click="btnBuscarDiagnostico_Click" VerticalAlignment="Top" Margin="407,73,51,0">Buscar</Button>
+                    FontSize="15" Margin="10,68,428,0"/>
+                <Button x:Name="btnBuscarDiagnostico" Click="btnBuscarDiagnostico_Click" VerticalAlignment="Top" Margin="407,73,286,0">Buscar</Button>
 
                 <DataGrid
                     x:Name="dgDiagnosticoCIE"
@@ -50,7 +79,9 @@
                         <DataGridTemplateColumn>
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button x:Name="btnSeleccionar" Content="Click" Click="btnSeleccionar_Click"/>
+                                    <Button x:Name="btnSeleccionar" 
+                                            Content="Click" 
+                                            Click="btnSeleccionar_Click"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
