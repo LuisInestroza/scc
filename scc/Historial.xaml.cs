@@ -16,6 +16,7 @@ using scc.Pacientes;
 using System.Data.SqlClient;
 using System.Data;
 using scc.Diagnosticos;
+using scc.Historiales;
 
 
 namespace scc
@@ -93,7 +94,7 @@ namespace scc
         private void btnBuscarPaciente_Click(object sender, RoutedEventArgs e)
         {
             BuscarPaciente abrirForm = new BuscarPaciente();
-            this.Hide();
+            
             abrirForm.ShowDialog();
          
             
@@ -104,16 +105,65 @@ namespace scc
         private void btnBuscarDiagnostico_Click(object sender, RoutedEventArgs e)
         {
             Diagnostico abrir = new Diagnostico();
-            this.Hide();
- 
+         
             abrir.ShowDialog();
         }
 
-      
+        private void btnGuardarHistoria_Click(object sender, RoutedEventArgs e)
+        {
+            // Validar que todos los Texbox no esten vacios
+            // Y evitar una inserccion vacia 
 
+            if (idDiagnostico == null)
+            {
+                MessageBox.Show("No has selecionado el diagnostico", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if (idPaciente == null)
+            {
+                MessageBox.Show("No has seleccioando el paciente", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if (txtMotivoConsulta.Text == "")
+            {
+                MessageBox.Show("Ingresa el Motivo de la consulta", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if (txtAntecedentes.Text == "")
+            {
+                MessageBox.Show("Ingresa los antecendetes del paciente", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if (txtTratamiento.Text == "")
+            {
+                MessageBox.Show("Ingresa el tratamiento del paciente", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else if (dpCita.Text == "")
+            {
+                MessageBox.Show("Ingresa la cita del paciente", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                // Si hay campos vacios realizar la insercion de los 
+                // resgistros a la base de datos
 
+                Historiales.Historial agregarHistoria = new Historiales.Historial();
 
-   
+                agregarHistoria.idDiagnostico = idDiagnostico;
+                agregarHistoria.idPaciente = idPaciente;
+                agregarHistoria.antecedentes = txtAntecedentes.Text;
+                agregarHistoria.descripcion = txtHistoriaClinica.Text;
+                agregarHistoria.motivoConsulta = txtMotivoConsulta.Text;
+                agregarHistoria.tratamiento = txtTratamiento.Text;
+                agregarHistoria.fechaIngreso = DateTime.Now;
+                agregarHistoria.cita = Convert.ToDateTime(dpCita.Text);
+
+                if (Historiales.Historial.InsertarHistorial(agregarHistoria))
+                {
+                    MessageBox.Show("La historia clinica ha sido registrad", "Registro Guardado", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Los datos no han sido registrados", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
     }
 
 }

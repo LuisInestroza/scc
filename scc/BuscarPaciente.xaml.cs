@@ -67,9 +67,11 @@ namespace scc
 
 
                 MessageBox.Show("Datos Seleccionados", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
-
+                
+               
+                    
                 this.Close();
-                historial.Show();
+               
 
 
 

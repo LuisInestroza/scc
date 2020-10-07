@@ -109,21 +109,21 @@
                     Margin="20,52,223,0" Height="18" Grid.Row="1"/>
 
                 <TextBox
-               
+                    x:Name="txtMotivoConsulta"
                     materialDesign:HintAssist.Hint="Motivo de Consulta"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     VerticalAlignment="Top"
                     Height="45" 
                     FontSize="15" Margin="16,78,243,0" Grid.Row="1"/>
                 <TextBox
-               
+                    x:Name="txtAntecedentes"
                     materialDesign:HintAssist.Hint="Antecedentes"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     VerticalAlignment="Top"
                     Height="45" 
                     FontSize="15" Margin="18,134,239,0" Grid.Row="1"/>
                 <TextBox
-             
+                    x:Name="txtTratamiento"
                     materialDesign:HintAssist.Hint="Tratamiento"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     VerticalAlignment="Top"
@@ -152,7 +152,8 @@
                         Margin="422,81,0,0" HorizontalAlignment="Left" Width="530" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
 
                 <DatePicker
-                    Name="LocaleDatePicker"
+                    x:Name="dpCita"
+                    
                     materialDesign:HintAssist.Hint="Proxima Cita" Margin="19,258,491,73" Height="32" Grid.Row="1" />
 
                 <!--DATOS PACIENTE-->
@@ -183,7 +184,9 @@
                     Height="18" 
                     FontSize="15" Margin="20,27,227,0" Grid.Row="2"/>
 
-                <Button 
+                <Button
+                    x:Name="btnGuardarHistoria"
+                    Click="btnGuardarHistoria_Click"
                     Style="{StaticResource MaterialDesignRaisedDarkButton}"
                     Width="239"
                     FontSize="15"

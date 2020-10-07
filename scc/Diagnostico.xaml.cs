@@ -71,9 +71,9 @@ namespace scc
                 historial.tbClaveDiagnostico.Text = clave.ToString();
                 historial.tbNombreDiagnostico.Text = nombre.ToString();
                 MessageBox.Show("Datos Seleccionados", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
-                
-                this.Close();
                 historial.Show();
+                this.Close();
+              
                 
 
 
