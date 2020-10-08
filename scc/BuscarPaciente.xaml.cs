@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using scc.Pacientes;
 using System.Data.SqlClient;
-
+using System.Windows.Interop;
 
 namespace scc
 {
@@ -22,11 +22,13 @@ namespace scc
     /// </summary>
     public partial class BuscarPaciente : Window
     {
-        public BuscarPaciente()
+        public BuscarPaciente(Historial frHistorial)
         {
             InitializeComponent();
+            this.formHistorial = frHistorial;
             CargarGrid();
         }
+
 
         private void btnMinimizar_Click(object sender, RoutedEventArgs e)
         {
@@ -45,13 +47,15 @@ namespace scc
                 
         }
 
+        private Historial formHistorial;
+
         private void btnSeleccionarPaciente_Click(object sender, RoutedEventArgs e)
         {
-            Historial historial = new Historial();
+           
             Pacientes.Paciente selecionar = dgListaPacientes.SelectedItem as Pacientes.Paciente;
 
 
-            if (selecionar != null)
+            if (formHistorial != null)
             {
                 int idPaciente = selecionar.idPaciente;
                 string nombrePaciente = selecionar.nombrePaciente;
@@ -59,17 +63,17 @@ namespace scc
                 string sexoPaciente = selecionar.sexo;
                 int edadPaciente = selecionar.edad;
 
-                historial.idPaciente = idPaciente;
-                historial.tbNombrePaciente.Text = nombrePaciente;
-                historial.tbIdentidadPaciente.Text = identidadPaciente;
-                historial.tbSexo.Text = sexoPaciente;
-                historial.tbEdadPaciente.Text = Convert.ToString(edadPaciente +" años");
-
-
-                MessageBox.Show("Datos Seleccionados", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
-                
+                formHistorial.idPaciente = idPaciente;
+                formHistorial.tbNombrePaciente.Text = nombrePaciente;
+                formHistorial.tbIdentidadPaciente.Text = identidadPaciente;
+                formHistorial.tbSexo.Text = sexoPaciente;
+                formHistorial.tbEdadPaciente.Text = Convert.ToString(edadPaciente +" años");
                
-                    
+               
+                
+                MessageBox.Show("Datos Seleccionados", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+
+
                 this.Close();
                
 

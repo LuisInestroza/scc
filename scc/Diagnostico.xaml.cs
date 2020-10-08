@@ -23,13 +23,16 @@ namespace scc
     /// </summary>
     public partial class Diagnostico : Window
     {
-        public Diagnostico()
+        public Diagnostico(Historial frHistorial)
         {
             InitializeComponent();
+            this.formHistorial = frHistorial;
             CargarGrid();
             
+
         }
 
+      
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -53,11 +56,11 @@ namespace scc
             Diagnosticos.Diagnostico listarCIE = new Diagnosticos.Diagnostico();
             dgDiagnosticoCIE.ItemsSource = listarCIE.ListarDiagnosticoUnico(txtBuscarCIE.Text);
         }
+        private Historial formHistorial;
 
-      
         private void btnSeleccionar_Click(object sender, RoutedEventArgs e)
         {
-            Historial historial = new Historial();
+       
             Diagnosticos.Diagnostico selecionar = dgDiagnosticoCIE.SelectedItem as Diagnosticos.Diagnostico;
 
 
@@ -67,11 +70,11 @@ namespace scc
                 string clave = selecionar.clave;
                 string nombre = selecionar.nombre;
 
-                historial.idDiagnostico = id;
-                historial.tbClaveDiagnostico.Text = clave.ToString();
-                historial.tbNombreDiagnostico.Text = nombre.ToString();
+                formHistorial.idDiagnostico = id;
+                formHistorial.tbClaveDiagnostico.Text = clave.ToString();
+                formHistorial.tbNombreDiagnostico.Text = nombre.ToString();
                 MessageBox.Show("Datos Seleccionados", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
-                historial.Show();
+
                 this.Close();
               
                 

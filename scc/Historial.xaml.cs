@@ -21,6 +21,7 @@ using scc.Historiales;
 
 namespace scc
 {
+    
     /// <summary>
     /// Lógica de interacción para Historial.xaml
     /// </summary>
@@ -31,6 +32,7 @@ namespace scc
         // Valores para la el idPaciente, idDiagnostico
         public int idPaciente;
         public int idDiagnostico;
+        
 
         public Historial()
         {
@@ -78,11 +80,16 @@ namespace scc
             // Concatenar los campos de la historia clinica
             txtHistoriaClinica.AppendText(historiaClinica);
 
+
+            
+
+
+   
             
 
 
         }
-        
+       
 
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -93,9 +100,9 @@ namespace scc
 
         private void btnBuscarPaciente_Click(object sender, RoutedEventArgs e)
         {
-            BuscarPaciente abrirForm = new BuscarPaciente();
-            
-            abrirForm.ShowDialog();
+            BuscarPaciente abrirForm = new BuscarPaciente(this);
+
+            abrirForm.Show(); 
          
             
 
@@ -104,9 +111,9 @@ namespace scc
 
         private void btnBuscarDiagnostico_Click(object sender, RoutedEventArgs e)
         {
-            Diagnostico abrir = new Diagnostico();
-         
-            abrir.ShowDialog();
+            Diagnostico abrir = new Diagnostico(this);
+
+            abrir.Show();
         }
 
         private void btnGuardarHistoria_Click(object sender, RoutedEventArgs e)
@@ -114,13 +121,13 @@ namespace scc
             // Validar que todos los Texbox no esten vacios
             // Y evitar una inserccion vacia 
 
-            if (idDiagnostico == null)
+            if (idPaciente == 0)
             {
-                MessageBox.Show("No has selecionado el diagnostico", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("No has selecionado el paciente", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            else if (idPaciente == null)
+            else if (idDiagnostico == 0)
             {
-                MessageBox.Show("No has seleccioando el paciente", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("No has seleccioando el diagnostico", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else if (txtMotivoConsulta.Text == "")
             {
