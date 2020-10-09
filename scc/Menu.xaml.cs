@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using scc.Pacientes;
 
 
 namespace scc
@@ -23,9 +25,13 @@ namespace scc
         public Menu()
         {
             InitializeComponent();
+           
+
+        
         }
 
-       
+
+        
         private void btnCloseWindow_Click(object sender, RoutedEventArgs e)
         {
             // Cerrar la app y temrinar el proceso completo
@@ -36,7 +42,7 @@ namespace scc
         {
             this.WindowState = WindowState.Minimized;
         }
-
+        
         private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
             MainWindow abrirLogin = new MainWindow();
@@ -44,16 +50,21 @@ namespace scc
             abrirLogin.Show();
 
         }
-
+        
         private void btnFromPaciente_Click(object sender, RoutedEventArgs e)
         {
+            Paciente paciente = new Paciente();
+   
+            
 
+            paciente.Show();
           
         }
 
         private void btnFromHistorial_Click(object sender, RoutedEventArgs e)
         {
-
+            Historial historial = new Historial();
+            historial.Show();
         }
 
        

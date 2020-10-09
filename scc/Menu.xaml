@@ -16,40 +16,71 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         WindowStyle="None"
-        
-        >
+        Width="1200"
+        Height="710">
+
     <Grid>
-        <Grid VerticalAlignment="Top" Height="60" Background="#933AAD">
-            <TextBlock Text="SISTEMA CONSULTORIO CLINICO" Foreground="White" VerticalAlignment="Center"
-                       FontSize="20" FontWeight="UltraBold" Margin="10,0"/>
-            <Button x:Name="btnCloseWindow"  Style="{StaticResource MaterialDesignIconButton}"  ToolTip="Cerrar Ventana" Click="btnCloseWindow_Click" HorizontalAlignment="Right"  VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
-                <materialDesign:PackIcon Kind="Close" Foreground="White" Height="20" Width="20"/>
-            </Button>
-            <Button x:Name="btnWindowMinimize" Style="{StaticResource MaterialDesignIconButton}"  ToolTip="Minimizar Ventana"  Click="btnWindowMinimize_Click" HorizontalAlignment="Right" Margin="60,0" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
-                <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White"  Height="20" Width="20"/>
-            </Button>
-            <Button x:Name="btnLogout" Style="{StaticResource MaterialDesignIconButton}"  ToolTip="Cerrar Session"  Click="btnLogout_Click" HorizontalAlignment="Right" Margin="120,0" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
-                <materialDesign:PackIcon Kind="Logout" Foreground="White"  Height="20" Width="20"/>
-            </Button>
-          
-        </Grid>
-        <StackPanel>
-            <Grid Height="80" Margin="0,60,0,0">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-                    <Button x:Name="btnFromPaciente" Click="btnFromPaciente_Click" Uid="0" Width="170" Content="PACIENTES" FontWeight="UltraBold" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000"/>
-                    <Button x:Name="btnFromHistorial" Click="btnFromHistorial_Click" Uid="0" Width="170" Content="HISTORIA CLINICA" FontWeight="UltraBold" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000"/>
-                    <Button x:Name="btnFromReporte" Click="btnFromReporte_Click" Uid="0" Width="170" Content="REPORTES" FontWeight="UltraBold" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000"/>
-                </StackPanel>
-                <Grid x:Name="gridCursor" Width="170" Height="5" Background="#000000" HorizontalAlignment="Left"/>
+        <materialDesign:Card>
+            <Grid>
+
+
+                <GroupBox Header="SISTEMA CONSULTORIO PRACTICO" HorizontalAlignment="Left" Height="710" Width="1200" VerticalAlignment="Top" RenderTransformOrigin="-3.102,0.759">
+                    <GroupBox.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock
+                               Margin="30,0,0,0"
+                               FontSize="25"
+                               FontWeight="UltraBold"
+                               VerticalAlignment="Center"
+                               Style="{StaticResource MaterialDesignSubtitle1TextBlock
+                                        }"
+                               Text="{Binding}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </GroupBox.HeaderTemplate>
+
+
+
+
+                </GroupBox>
+                <Button x:Name="btnCloseWindow"  Style="{StaticResource MaterialDesignIconButton}"  ToolTip="Cerrar Ventana" Click="btnCloseWindow_Click" HorizontalAlignment="Right"  VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,0,0,662">
+                    <materialDesign:PackIcon Kind="Close" Foreground="White" Height="20" Width="20"/>
+                </Button>
+                <Button x:Name="btnWindowMinimize" Style="{StaticResource MaterialDesignIconButton}"  ToolTip="Minimizar Ventana"  Click="btnWindowMinimize_Click" HorizontalAlignment="Right" Margin="0,0,53,662" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White"  Height="20" Width="20"/>
+                </Button>
+                <Button x:Name="btnLogout" Style="{StaticResource MaterialDesignIconButton}"  ToolTip="Cerrar Session"  Click="btnLogout_Click" HorizontalAlignment="Right" Margin="0,0,106,662" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon Kind="Logout" Foreground="White"  Height="20" Width="20"/>
+                </Button>
+
+
+
+
+                <Button x:Name="btnFromHistorial" Click="btnFromHistorial_Click" Uid="0" Width="170" Content="HISTORIA CLINICA" FontWeight="UltraBold" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000" Margin="10,150,1020,510"/>
+                <Button x:Name="btnFromPaciente" 
+                            Click="btnFromPaciente_Click" 
+                            Uid="0" Width="170" 
+                            Content="PACIENTES"
+                            FontWeight="UltraBold" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000" Margin="10,95,1020,565"/>
+                <Button x:Name="btnFromReporte" Click="btnFromReporte_Click" Content="RESPORTES" Uid="0" Width="170"  FontWeight="UltraBold" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000" Margin="10,237,1020,423"/>
+
+
+
+
+
             </Grid>
-            
-        </StackPanel>
-        <StackPanel x:Name="panelFrm" Margin="0,120,0,0" >
-            
-        </StackPanel>
-        
+
+
+
+
+
+
+        </materialDesign:Card>
+
+
     </Grid>
- 
+
 </Window>
 
     

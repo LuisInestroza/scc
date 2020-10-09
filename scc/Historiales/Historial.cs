@@ -20,6 +20,7 @@ namespace scc.Historiales
         public DateTime cita{ get; set; }
         public int idPaciente { get; set; }
         public int idDiagnostico { get; set; }
+        public string HEA { get; set; }
 
 
         // Constructor de la clase
@@ -61,6 +62,9 @@ namespace scc.Historiales
 
             cmd.Parameters.Add(new SqlParameter("@idDiagnostico", SqlDbType.Int));
             cmd.Parameters["@idDiagnostico"].Value = historial.idDiagnostico;
+
+            cmd.Parameters.Add(new SqlParameter("@HEA", SqlDbType.Text));
+            cmd.Parameters["@HEA"].Value = historial.HEA;
 
 
             // Realizar la el registro del Historial

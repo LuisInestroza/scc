@@ -48,6 +48,7 @@ namespace scc
 
             // Mostrar los detalles de la historia clinica
             string historiaClinica;
+            string antecedentes;
 
             // Datos de la historia clinica 
             historiaClinica =
@@ -81,6 +82,12 @@ namespace scc
             txtHistoriaClinica.AppendText(historiaClinica);
 
 
+            antecedentes = "Antecedentes Pesonales Patologicos:\n\n" +
+                  "Antecedentes Quirurgicos / Traumaticos:\n\n" +
+                  "Antecendes Alergicos:\n\n" +
+                  "Antecendes Familiares:";
+
+            txtAntecedentes.AppendText(antecedentes);
             
 
 
@@ -133,6 +140,10 @@ namespace scc
             {
                 MessageBox.Show("Ingresa el Motivo de la consulta", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+            else if(txtHEA.Text == "")
+            {
+                MessageBox.Show("Ingresa el HEA", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
             else if (txtAntecedentes.Text == "")
             {
                 MessageBox.Show("Ingresa los antecendetes del paciente", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -154,6 +165,7 @@ namespace scc
 
                 agregarHistoria.idDiagnostico = idDiagnostico;
                 agregarHistoria.idPaciente = idPaciente;
+                agregarHistoria.HEA = txtHEA.Text;
                 agregarHistoria.antecedentes = txtAntecedentes.Text;
                 agregarHistoria.descripcion = txtHistoriaClinica.Text;
                 agregarHistoria.motivoConsulta = txtMotivoConsulta.Text;

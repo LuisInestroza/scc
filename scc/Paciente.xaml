@@ -38,6 +38,30 @@
 
 
                 </GroupBox>
+                <Button 
+                    x:Name="btnMinimizar"
+                    Click="btnMinimizar_Click"
+                    HorizontalAlignment="Left" Margin="676,0,0,0" 
+                    VerticalAlignment="Top" 
+                    Height="44" Width="46"
+                   Style="{StaticResource MaterialDesignIconButton}"  
+                        ToolTip="Minimizar Pantalla"
+                        
+                         Background="{x:Null}" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White"  Height="20" Width="20"/>
+                </Button>
+                <Button  x:Name="btnCerrarVentana"
+                        Click="btnCerrarVentana_Click"
+                            Margin="742,0,0,455" VerticalAlignment="Bottom" 
+                         Height="44" Width="48"
+                        Style="{StaticResource MaterialDesignIconButton}"  
+                        ToolTip="Cerrar Ventana"
+                        HorizontalAlignment="Left" 
+                         Background="{x:Null}" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon Kind="Close" Foreground="White" Height="20" Width="20"/>
+
+
+                </Button>
                 <TextBlock Margin="510,50,0,422" FontWeight="UltraBold" FontSize="15">Listado de Pacientes</TextBlock>
                 <ListBox HorizontalAlignment="Right"
                          x:Name="lbListaPacientes" Margin="0,78,0,0" RenderTransformOrigin="0.5,0.5" Width="296">

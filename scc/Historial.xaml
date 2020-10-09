@@ -13,7 +13,7 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Height="700" Width="1000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Height="700" Width="1200" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
         <materialDesign:Card>
 
@@ -31,7 +31,7 @@
 
                 <GroupBox Header="HISTORIAL MEDICO" 
                           HorizontalAlignment="Left" 
-                          Height="700" Width="1000" VerticalAlignment="Top" RenderTransformOrigin="-3.102,0.759" Grid.ColumnSpan="2" Grid.RowSpan="4">
+                          Height="700" Width="1200" VerticalAlignment="Top" RenderTransformOrigin="-3.102,0.759" Grid.ColumnSpan="2" Grid.RowSpan="4">
                     <GroupBox.HeaderTemplate>
                         <DataTemplate>
                             <StackPanel>
@@ -58,7 +58,7 @@
                         Width="168"
                         FontSize="15"
                         ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
-                        Margin="191,10,0,0" VerticalAlignment="Top"
+                        Margin="243,9,0,0" VerticalAlignment="Top"
                     HorizontalAlignment="Left" Height="39" 
                     Content="BUSCAR PACIENTE" Grid.Row="3"/>
                 <TextBlock 
@@ -66,14 +66,14 @@
                     FontWeight="UltraBold"
                     FontSize="15"
                     VerticalAlignment="Top"
-                    Margin="20,67,223,0" Height="18">
+                    Margin="20,59,223,0" Height="18">
                
                     Fecha Ingreso
                 </TextBlock>
                 <!--TEXTBOX BUSCAR PACIENTE-->
                 <TextBlock x:Name="tbDatosPaciente"
                            Text="DATOS PACIENTE"
-                           Margin="20,101,223,0"
+                           Margin="20,81,223,0"
                            VerticalAlignment="Top"
                            Height="27"
                            FontWeight="UltraBold"
@@ -85,28 +85,28 @@
                     FontWeight="UltraBold"
                     VerticalAlignment="Top"
                     Text="NombrePaciente"
-                    Margin="20,141,223,0" Height="18"/>
+                    Margin="20,110,223,0" Height="18"/>
                 <TextBlock 
                         x:Name="tbIdentidadPaciente"
                         FontSize="15"
                         FontWeight="UltraBold"
                         VerticalAlignment="Top"
                         Text="Identidad Paciente"
-                        Margin="20,0,223,0" Height="18" Width="390" Grid.Row="1"/>
+                        Margin="21,129,349,0" Height="18" Width="390"/>
                 <TextBlock
                     Text="Edad Paciente"
                     x:Name="tbEdadPaciente"
                     FontSize="15"
                     FontWeight="UltraBold"
                     VerticalAlignment="Top"
-                    Margin="20,27,223,0" Height="18" Grid.Row="1"/>
+                    Margin="20,147,223,0" Height="18"/>
                 <TextBlock
                     Text="Sexo Paciente"
                     x:Name="tbSexo"
                     FontSize="15"
                     FontWeight="UltraBold"
                     VerticalAlignment="Top"
-                    Margin="20,52,223,0" Height="18" Grid.Row="1"/>
+                    Margin="20,162,223,0" Height="18" Grid.RowSpan="2"/>
 
                 <TextBox
                     x:Name="txtMotivoConsulta"
@@ -114,27 +114,45 @@
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     VerticalAlignment="Top"
                     Height="45" 
-                    FontSize="15" Margin="16,78,243,0" Grid.Row="1"/>
+                    FontSize="15" Margin="20,13,147,0" Grid.Row="1"/>
+                <TextBox
+                    x:Name="txtHEA"
+                    materialDesign:HintAssist.Hint="HEA"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    VerticalAlignment="Top"
+                    FontSize="15"
+                    Height="45"
+                    Margin="20,64,145,0"
+                    Grid.Row="1" />
+
+
                 <TextBox
                     x:Name="txtAntecedentes"
                     materialDesign:HintAssist.Hint="Antecedentes"
-                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     
                     VerticalAlignment="Top"
-                    Height="45" 
-                    FontSize="15" Margin="18,134,239,0" Grid.Row="1"/>
+                    Height="93" 
+                    Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                    VerticalScrollBarVisibility="Auto"
+                    AcceptsReturn="True"
+                    TextWrapping="Wrap"
+                    FontSize="15" Margin="20,124,149,0" Grid.Row="1"/>
                 <TextBox
                     x:Name="txtTratamiento"
                     materialDesign:HintAssist.Hint="Tratamiento"
-                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+                    VerticalScrollBarVisibility="Auto"
+                    AcceptsReturn="True"
+                    TextWrapping="Wrap"
                     VerticalAlignment="Top"
-                    Height="45" 
-                    FontSize="15" Margin="18,193,239,0" Grid.Row="1"/>
+                    Height="94" 
+                    FontSize="15" Margin="20,228,149,0" Grid.Row="1"/>
                 <Button x:Name="btnBuscarDiagnostico" 
                          Style="{StaticResource MaterialDesignRaisedDarkButton}"
                             ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
                         Click="btnBuscarDiagnostico_Click" 
                         VerticalAlignment="Top" 
-                        Margin="625,10,181,0" 
+                        Margin="700,10,298,0" 
                         FontSize="15"
                       
                         Content="BUSCAR DIAGNOSTICO" Height="38" Grid.Row="3" Grid.ColumnSpan="2"/>
@@ -149,22 +167,23 @@
                         TextWrapping="Wrap"
                         VerticalScrollBarVisibility="Auto"
                         materialDesign:HintAssist.Hint="Historia Clinica" 
-                        Margin="422,81,0,0" HorizontalAlignment="Left" Width="530" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
+                        Margin="632,81,0,0" 
+                        HorizontalAlignment="Left" Width="530" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
 
                 <DatePicker
                     x:Name="dpCita"
                     
-                    materialDesign:HintAssist.Hint="Proxima Cita" Margin="19,258,491,73" Height="32" Grid.Row="1" />
+                    materialDesign:HintAssist.Hint="Proxima Cita" Margin="20,333,592,95" Height="32" Grid.Row="1" Grid.RowSpan="2" />
 
                 <!--DATOS PACIENTE-->
                 <TextBlock x:Name="tbDatosDiagnostico"
                         Text="DATOS DIAGNOSTICO"
-                        Margin="20,318,223,0"
+                        Margin="20,21,350,0"
                         VerticalAlignment="Top"
                         Height="35"
                         FontWeight="UltraBold"
                         FontSize="20"
-                           Width="390" Grid.Row="1"
+                           Width="390" Grid.Row="2"
                            />
                 <TextBlock
                     x:Name="tbClaveDiagnostico"
@@ -174,7 +193,7 @@
                     FontWeight="UltraBold"
                     VerticalAlignment="Top"
                     Height="18"
-                    Margin="22,362,223,0" Grid.Row="1" Grid.RowSpan="2"/>
+                    Margin="20,59,223,0" Grid.Row="2"/>
                 <TextBlock
                     x:Name="tbNombreDiagnostico"
                     Text="Nombre Enfermedad"
@@ -182,7 +201,7 @@
                     FontWeight="UltraBold"
                     VerticalAlignment="Top"
                     Height="18" 
-                    FontSize="15" Margin="20,27,227,0" Grid.Row="2"/>
+                    FontSize="15" Margin="20,79,227,0" Grid.Row="2"/>
 
                 <Button
                     x:Name="btnGuardarHistoria"
@@ -191,7 +210,7 @@
                     Width="239"
                     FontSize="15"
                     ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
-                    Margin="374,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="39" Grid.Row="3">
+                    Margin="436,9,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="39" Grid.Row="3">
 
 
                     GUARDAR HISTORIA CLINICA
