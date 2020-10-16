@@ -71,6 +71,8 @@ namespace scc
 
         private void btnFromReporte_Click(object sender, RoutedEventArgs e)
         {
+            Reporte reporte = new Reporte();
+            reporte.Show();
 
         }
     }

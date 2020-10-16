@@ -1,0 +1,123 @@
+﻿<Window x:Class="scc.Reporte"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
+        xmlns:local="clr-namespace:scc"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Visibility="Visible" ResizeMode="CanMinimize" 
+
+        Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="124*"/>
+            <RowDefinition Height="101*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="435*"/>
+            <ColumnDefinition Width="316*"/>
+            <ColumnDefinition Width="49*"/>
+        </Grid.ColumnDefinitions>
+        <materialDesign:Card Grid.ColumnSpan="3" Grid.RowSpan="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="131*"/>
+                    <RowDefinition Height="319*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="489*"/>
+                    <ColumnDefinition Width="57*"/>
+                    <ColumnDefinition Width="254*"/>
+                </Grid.ColumnDefinitions>
+                <GroupBox 
+                    Header="REPORTES" 
+                    HorizontalAlignment="Left" 
+                    Height="450" Width="800" 
+                    VerticalAlignment="Top" 
+                    RenderTransformOrigin="-3.102,0.759" 
+                    Grid.ColumnSpan="3" Grid.RowSpan="2">
+                    <GroupBox.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock
+                                   Margin="30,0,0,0"
+                                   FontSize="25"
+                                   FontWeight="UltraBold"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource MaterialDesignSubtitle1TextBlock}"
+                                   Text="{Binding}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </GroupBox.HeaderTemplate>
+
+                </GroupBox>
+                <Button 
+                    x:Name="btnMinimizar"
+                    Click="btnMinimizar_Click"
+                    HorizontalAlignment="Left" Margin="145,0,0,0" 
+                    VerticalAlignment="Top" 
+                    Height="44" Width="46"
+                    Style="{StaticResource MaterialDesignIconButton}"  
+                    ToolTip="Minimizar Pantalla"
+                    Background="{x:Null}" BorderBrush="{x:Null}" Grid.Column="2">
+                    <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White"  Height="20" Width="20"/>
+                </Button>
+                <Button  
+                    x:Name="btnCerrarVentana"
+                    Click="btnCerrarVentana_Click"
+                    Margin="196,0,0,87" 
+                    Height="Auto" Width="48"
+                    Style="{StaticResource MaterialDesignIconButton}"  
+                    ToolTip="Cerrar Ventana"
+                    HorizontalAlignment="Left" 
+                    Background="{x:Null}" BorderBrush="{x:Null}" Grid.Column="2">
+                    <materialDesign:PackIcon Kind="Close" Foreground="White" Height="20" Width="20"/>
+                </Button>
+                <TextBox
+                   x:Name="txtBuscarPacienteReporte"
+                    Margin="20,49,139.377,0"
+                    materialDesign:HintAssist.Hint="Buscar Paciente Nombre"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    VerticalAlignment="Top"
+                    Height="45" />
+                <TextBox
+                   x:Name="txtBuscarPacienteIdentidad"
+                    Margin="20,98,139.377,0"
+                    materialDesign:HintAssist.Hint="Buscar Paciente Identidad"
+                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                    VerticalAlignment="Top"
+                    Height="45" Grid.RowSpan="2" />
+
+                <Button 
+                    x:Name="btnBuscarPacienteReporte"
+                    Click="btnBuscarPacienteReporte_Click"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    Width="90"
+                    FontSize="19"
+                    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
+                    Margin="396,85,0,0" 
+                    VerticalAlignment="Top" 
+                    HorizontalAlignment="Left" 
+                    Height="36" Content="Buscar"/>
+                <WindowsFormsHost Name="windowsFormHost1" HorizontalAlignment="Left" Height="292" Margin="10,17,0,0" VerticalAlignment="Top" Width="780" Grid.ColumnSpan="3" Grid.Row="1">
+                    <rv:ReportViewer x:Name="rpReportePaciente"/>
+                </WindowsFormsHost>
+
+
+
+            </Grid>
+        </materialDesign:Card>
+
+    </Grid>
+</Window>

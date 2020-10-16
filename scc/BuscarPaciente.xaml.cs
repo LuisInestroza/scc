@@ -92,6 +92,8 @@ namespace scc
         {
             Pacientes.Paciente listarPacienteUnico = new Pacientes.Paciente();
             dgListaPacientes.ItemsSource = listarPacienteUnico.ListarPacienteUnico(txtBuscarPacientes.Text);
+
+            
         }
     }
 }

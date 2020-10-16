@@ -19,6 +19,7 @@ using scc.Diagnosticos;
 using scc.Historiales;
 
 
+
 namespace scc
 {
     
@@ -140,7 +141,7 @@ namespace scc
             {
                 MessageBox.Show("Ingresa el Motivo de la consulta", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            else if(txtHEA.Text == "")
+            else if (txtHEA.Text == "")
             {
                 MessageBox.Show("Ingresa el HEA", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Information);
             }
@@ -160,8 +161,10 @@ namespace scc
             {
                 // Si hay campos vacios realizar la insercion de los 
                 // resgistros a la base de datos
-
                 Historiales.Historial agregarHistoria = new Historiales.Historial();
+
+                
+
 
                 agregarHistoria.idDiagnostico = idDiagnostico;
                 agregarHistoria.idPaciente = idPaciente;
@@ -173,9 +176,14 @@ namespace scc
                 agregarHistoria.fechaIngreso = DateTime.Now;
                 agregarHistoria.cita = Convert.ToDateTime(dpCita.Text);
 
+                
+
                 if (Historiales.Historial.InsertarHistorial(agregarHistoria))
                 {
                     MessageBox.Show("La historia clinica ha sido registrad", "Registro Guardado", MessageBoxButton.OK, MessageBoxImage.Information);
+
+               
+                    
                 }
                 else
                 {

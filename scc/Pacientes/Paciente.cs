@@ -162,6 +162,7 @@ namespace scc.Pacientes
            
         }
 
+
         public List<Paciente> ListarPacienteBuscar()
         {
             Conexion conexion = new Conexion(@"(local)\sqlexpress", "scc");
@@ -192,6 +193,7 @@ namespace scc.Pacientes
                     resultado.edad = rdr.GetInt32(3);
                     resultado.sexo = rdr.GetString(4);
 
+                    
                     Lista.Add(resultado);
 
 

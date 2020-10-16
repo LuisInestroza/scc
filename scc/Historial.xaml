@@ -166,7 +166,7 @@
                         AcceptsReturn="True"
                         TextWrapping="Wrap"
                         VerticalScrollBarVisibility="Auto"
-                        materialDesign:HintAssist.Hint="Historia Clinica" 
+                        materialDesign:HintAssist.Hint="EXAMEN FISICO" 
                         Margin="632,81,0,0" 
                         HorizontalAlignment="Left" Width="530" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
 
