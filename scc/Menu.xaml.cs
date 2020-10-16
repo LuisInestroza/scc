@@ -54,9 +54,6 @@ namespace scc
         private void btnFromPaciente_Click(object sender, RoutedEventArgs e)
         {
             Paciente paciente = new Paciente();
-   
-            
-
             paciente.Show();
           
         }
@@ -74,6 +71,13 @@ namespace scc
             Reporte reporte = new Reporte();
             reporte.Show();
 
+        }
+
+        private void btnAbout_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Sistema desarollado por:\n" +
+                "LUIS DARIO RODRIGUEZ INESTROZA\n\n" +
+                "Este sistema esta apto para el uso de un solo medico que lo va a trabajar.", "About", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 

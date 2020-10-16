@@ -15,7 +15,11 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         Height="700" Width="1200" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Grid>
-        <materialDesign:Card>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="782*"/>
+            <ColumnDefinition Width="419*"/>
+        </Grid.ColumnDefinitions>
+        <materialDesign:Card Grid.ColumnSpan="2">
 
             <Grid>
                 <Grid.RowDefinitions>
@@ -51,6 +55,30 @@
 
 
                 </GroupBox>
+                <Button 
+                    x:Name="btnMinimizar"
+                    Click="btnMinimizar_Click"
+                    HorizontalAlignment="Left" Margin="331,0,0,0" 
+                    VerticalAlignment="Top" 
+                    Height="44" Width="46"
+                   Style="{StaticResource MaterialDesignIconButton}"  
+                        ToolTip="Minimizar Pantalla"
+                        
+                         Background="{x:Null}" BorderBrush="{x:Null}" Grid.Column="1">
+                    <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White"  Height="20" Width="20"/>
+                </Button>
+                <Button  x:Name="btnCerrarVentana"
+                        Click="btnCerrarVentana_Click"
+                            Margin="382,0,0,125" VerticalAlignment="Bottom" 
+                         Height="44" Width="48"
+                        Style="{StaticResource MaterialDesignIconButton}"  
+                        ToolTip="Cerrar Ventana"
+                        HorizontalAlignment="Left" 
+                         Background="{x:Null}" BorderBrush="{x:Null}" Grid.Column="1">
+                    <materialDesign:PackIcon Kind="Close" Foreground="White" Height="20" Width="20"/>
+
+
+                </Button>
                 <Button 
                     x:Name="btnBuscarPaciente"
                     Click="btnBuscarPaciente_Click"

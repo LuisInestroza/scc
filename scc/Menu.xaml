@@ -22,15 +22,21 @@
     <Grid>
         <materialDesign:Card>
             <Grid>
-
-
-                <GroupBox Header="SISTEMA CONSULTORIO PRACTICO" HorizontalAlignment="Left" Height="710" Width="1200" VerticalAlignment="Top" RenderTransformOrigin="-3.102,0.759">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="299*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <GroupBox Header="SISTEMA CONSULTORIO PRACTICO" 
+                          HorizontalAlignment="Left" 
+                          Height="710" Width="1200" 
+                          VerticalAlignment="Top" RenderTransformOrigin="-3.102,0.759" 
+                          Grid.ColumnSpan="2">
                     <GroupBox.HeaderTemplate>
                         <DataTemplate>
                             <StackPanel>
                                 <TextBlock
-                               Margin="30,0,0,0"
-                               FontSize="25"
+                               Margin="30,0,0,5"
+                               FontSize="30"
                                FontWeight="UltraBold"
                                VerticalAlignment="Center"
                                Style="{StaticResource MaterialDesignSubtitle1TextBlock
@@ -39,44 +45,112 @@
                             </StackPanel>
                         </DataTemplate>
                     </GroupBox.HeaderTemplate>
-
-
-
-
+                    <TextBlock 
+                        Text="Version: 1.0" 
+                        Foreground="Black" 
+                        FontSize="20" 
+                        FontWeight="UltraBold" 
+                        Margin="0,615,0,-7" Width="134"/>
                 </GroupBox>
-                <Button x:Name="btnCloseWindow"  Style="{StaticResource MaterialDesignIconButton}"  ToolTip="Cerrar Ventana" Click="btnCloseWindow_Click" HorizontalAlignment="Right"  VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,0,0,662">
-                    <materialDesign:PackIcon Kind="Close" Foreground="White" Height="20" Width="20"/>
+                <Button 
+                    x:Name="btnCloseWindow"  
+                    Style="{StaticResource MaterialDesignIconButton}"  
+                    ToolTip="Cerrar Ventana" 
+                    Click="btnCloseWindow_Click" 
+                    HorizontalAlignment="Right"  
+                    VerticalAlignment="Center" 
+                    Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,4,8,658" RenderTransformOrigin="0.708,-0.375">
+                    <materialDesign:PackIcon 
+                        Kind="Close"
+                        Foreground="White" 
+                        Height="30" Width="30"/>
                 </Button>
-                <Button x:Name="btnWindowMinimize" Style="{StaticResource MaterialDesignIconButton}"  ToolTip="Minimizar Ventana"  Click="btnWindowMinimize_Click" HorizontalAlignment="Right" Margin="0,0,53,662" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
-                    <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White"  Height="20" Width="20"/>
+                <Button
+                    x:Name="btnWindowMinimize" 
+                    Style="{StaticResource MaterialDesignIconButton}"  
+                    ToolTip="Minimizar Ventana"  
+                    Click="btnWindowMinimize_Click" 
+                    HorizontalAlignment="Right" 
+                    Margin="0,4,81,658" 
+                    VerticalAlignment="Center" 
+                    Background="{x:Null}" 
+                    BorderBrush="{x:Null}" RenderTransformOrigin="1.292,0.542">
+                    <materialDesign:PackIcon 
+                        Kind="WindowMinimize" 
+                        Foreground="White"  
+                        Height="30" Width="30"/>
                 </Button>
-                <Button x:Name="btnLogout" Style="{StaticResource MaterialDesignIconButton}"  ToolTip="Cerrar Session"  Click="btnLogout_Click" HorizontalAlignment="Right" Margin="0,0,106,662" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}">
-                    <materialDesign:PackIcon Kind="Logout" Foreground="White"  Height="20" Width="20"/>
+                <Button 
+                    x:Name="btnLogout" 
+                    Style="{StaticResource MaterialDesignIconButton}"  
+                    ToolTip="Cerrar Session"  
+                    Click="btnLogout_Click" 
+                    HorizontalAlignment="Right" 
+                    Margin="0,4,156,658" 
+                    VerticalAlignment="Center" 
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}" RenderTransformOrigin="0.5,-0.083" >
+                    <materialDesign:PackIcon 
+                        Kind="Logout" 
+                        Foreground="White"  
+                        Height="30" Width="30"/>
                 </Button>
-
-
-
-
-                <Button x:Name="btnFromHistorial" Click="btnFromHistorial_Click" Uid="0" Width="170" Content="HISTORIA CLINICA" FontWeight="UltraBold" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000" Margin="10,150,1020,510"/>
-                <Button x:Name="btnFromPaciente" 
-                            Click="btnFromPaciente_Click" 
-                            Uid="0" Width="170" 
-                            Content="PACIENTES"
-                            FontWeight="UltraBold" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000" Margin="10,95,1020,565"/>
-                <Button x:Name="btnFromReporte" Click="btnFromReporte_Click" Content="RESPORTES" Uid="0" Width="170"  FontWeight="UltraBold" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#000000" Margin="10,237,1020,423"/>
-
-
-
-
 
             </Grid>
-
-
-
-
-
-
         </materialDesign:Card>
+        <TextBlock 
+            Text="BIENVENIDO" 
+            Foreground="Black" 
+            FontSize="60" 
+            FontWeight="UltraBold" 
+            Margin="413,143,393,498"/>
+
+        <Button 
+            x:Name="btnFromHistorial" 
+            Click="btnFromHistorial_Click" 
+            Uid="0" Content="HISTORIA CLINICA" 
+            FontWeight="UltraBold" Height="Auto" 
+            FontSize="25"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Margin="484,326,432,289"/>
+
+        <Button 
+            x:Name="btnFromPaciente" 
+            Click="btnFromPaciente_Click" 
+            Uid="0" 
+            FontSize="25"
+            Content="PACIENTES"
+            FontWeight="UltraBold" Height="Auto" 
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Margin="162,326,754,289"/>
+
+        <Button
+            x:Name="btnFromReporte" 
+            Click="btnFromReporte_Click" 
+            Content="RESPORTES" Uid="0"  
+            FontSize="25"
+            FontWeight="UltraBold" Height="Auto" 
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Margin="805,326,111,289"/>
+
+        <Button
+            x:Name="btnAbout" 
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"  
+            Click="btnAbout_Click"
+            HorizontalAlignment="Right" 
+            Margin="0,637,10,18" 
+            VerticalAlignment="Center" 
+            RenderTransformOrigin="1.292,0.542" Height="55">
+            <materialDesign:PackIcon 
+                        Kind="About" 
+                        Foreground="#ffffff"  
+                        Height="30" Width="30"/>
+
+        </Button>
+
+
+
+
 
 
     </Grid>
