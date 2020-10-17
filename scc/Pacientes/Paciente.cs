@@ -136,7 +136,7 @@ namespace scc.Pacientes
             
 
             // Query para listar todos los pacientes
-            sql = @"SELECT nombrePaciente FROM scc.Paciente";
+            sql = @"SELECT nombrePaciente FROM scc.Paciente ORDER BY CONVERT(varchar,nombrePaciente)";
 
             // Comando
             SqlCommand cmd = conexion.EjecutarComando(sql);
@@ -280,9 +280,9 @@ namespace scc.Pacientes
         /// Listar todos los datos de un paciente unico 
         /// para actualiar
         /// </summary>
-        /// <param name="identidad"></param>
+        /// <param name="nombre"></param>
         /// <returns></returns>
-        public static Paciente ListarDatosPacieneIdentidad(string identidad)
+        public static Paciente ListarDatosPacieneIdentidad(string nombre)
         {
             Conexion conexion = new Conexion(@"(local)\sqlexpress", "scc");
 
@@ -290,7 +290,7 @@ namespace scc.Pacientes
             Paciente resultado = new Paciente();
 
             // Query sql
-            sql = @"SELECT * FROM scc.Paciente WHERE identidadPaciente = @idenidadPaciente" ;
+            sql = @"SELECT * FROM scc.Paciente WHERE nombrePaciente like @nombrePaciente";
 
             SqlCommand cmd = conexion.EjecutarComando(sql);
 
@@ -300,7 +300,7 @@ namespace scc.Pacientes
             {
                 using (cmd)
                 {
-                    cmd.Parameters.Add("@idenidadPaciente", SqlDbType.Char, 13).Value = identidad;
+                    cmd.Parameters.Add("@nombrePaciente", SqlDbType.Text).Value =nombre;
                     rdr = cmd.ExecuteReader();
 
                 }
