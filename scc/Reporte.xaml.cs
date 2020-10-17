@@ -12,7 +12,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using scc.Reportes;
 using System.Data.SqlClient;
 using Word = Microsoft.Office.Interop.Word;
 using System.IO;
@@ -28,21 +27,10 @@ namespace scc
     public partial class Reporte : Window
     {
 
-        public string nombre;
-        public string edad;
-        public string sexo;
-        public string motivo;
-        public string fecha;
-        public string enfermedad;
-        public string examendFisico;
-
   
         public Reporte()
         {
             InitializeComponent();
-
-           
-
         }
 
         private void btnMinimizar_Click(object sender, RoutedEventArgs e)

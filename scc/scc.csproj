@@ -89,7 +89,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>reportePacienteUnicoDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\Reporte.cs" />
     <Compile Include="Usuarios\Usuario.cs" />
     <Page Include="BuscarPaciente.xaml">
       <SubType>Designer</SubType>

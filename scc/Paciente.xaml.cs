@@ -25,6 +25,7 @@ namespace scc
         {
             InitializeComponent();
             listaPaciente();
+            btnActualizarPaciente.IsEnabled = false;
         }
 
         /// <summary>
@@ -66,7 +67,10 @@ namespace scc
             cbReligion.Text = "";
             cbSexo.Text = "";
             dpFechaNaciemiento.Text = "";
-            
+            btnActualizarPaciente.IsEnabled = false;
+            btnAgregarPaciente.IsEnabled = true;
+            txtBuscarPacienteIdentidad.Text = "";
+
 
         }
         /// <summary>
@@ -183,6 +187,60 @@ namespace scc
         private void btnCerrarVentana_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+
+        private void btnActualizarPaciente_Click(object sender, RoutedEventArgs e)
+        {
+            Pacientes.Paciente paciente = new Pacientes.Paciente();
+            paciente.nombrePaciente = txtNombre.Text;
+            paciente.identidadPaciente = txtIdentidad.Text;
+            paciente.edad = Convert.ToInt32(txtEdad.Text);
+            paciente.correo = txtCorreo.Text;
+            paciente.direccion = txtDireccion.Text;
+            paciente.lugarNacimiento = txtLugarNacimiento.Text;
+            paciente.lugarResidencia = txtLugarResidencia.Text;
+            paciente.telefonos = txtTelefonos.Text;
+            paciente.escolaridad = cbEscolaridad.Text.ToString();
+            paciente.estadoCivil = cbEstadoCivil.Text.ToString();
+            paciente.raza = cbRaza.Text.ToString();
+            paciente.religion = cbReligion.Text.ToString();
+            paciente.sexo = cbSexo.Text.ToString();
+            paciente.fechaNacimiento = Convert.ToDateTime(dpFechaNaciemiento.Text);
+            if (Pacientes.Paciente.ActulizarPaciente(paciente))
+            {
+                MessageBox.Show("Los Datos Se Han Actuzalizado", "Actulizacion De Datos", MessageBoxButton.OK, MessageBoxImage.Information);
+                Limpiar();
+            }
+            else
+            {
+                MessageBox.Show("Los Datos No Se Han Actuzalizado", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        
+        }
+
+        private void txtBuscarPacienteIdentidad_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Pacientes.Paciente paciente = Pacientes.Paciente.ListarDatosPacieneIdentidad(txtBuscarPacienteIdentidad.Text);
+            txtNombre.Text = paciente.nombrePaciente;
+            txtIdentidad.Text = paciente.identidadPaciente;
+            txtCorreo.Text = paciente.correo;
+            txtDireccion.Text = paciente.direccion;
+            txtEdad.Text = Convert.ToString(paciente.edad);
+            txtLugarNacimiento.Text = paciente.lugarNacimiento;
+            txtLugarResidencia.Text = paciente.lugarResidencia;
+            txtTelefonos.Text = paciente.telefonos;
+            cbEscolaridad.Text = paciente.escolaridad;
+            cbEstadoCivil.Text = paciente.estadoCivil;
+            cbRaza.Text = paciente.raza;
+            cbReligion.Text = paciente.religion;
+            cbSexo.Text = paciente.sexo;
+            dpFechaNaciemiento.Text = Convert.ToString(paciente.fechaNacimiento);
+            if (txtIdentidad.Text != "")
+            {
+                btnActualizarPaciente.IsEnabled = true;
+                btnAgregarPaciente.IsEnabled = false;
+            }
         }
     }
 }
