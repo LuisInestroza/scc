@@ -48,8 +48,8 @@ namespace scc
     
 
             // Mostrar los detalles de la historia clinica
-            string historiaClinica;
-            string antecedentes;
+             string historiaClinica;
+             string antecedentes;
 
             // Datos de la historia clinica 
             historiaClinica =
@@ -98,7 +98,53 @@ namespace scc
 
         }
        
+        private void Limpiar()
+        {
+            string historiaClinica =
 
+               "SIGNOS VITALES:\n\n" +
+               "P/A:\tFC:\tFR:\tT:\tSO2:\tP:\t\n\n" +
+               "PESO:\tTALLA:\tIMC:\t\n\n" +
+               "Circunferencia Abdominal:\n\n" +
+               "Neurologico:\n\n" +
+               "Cabeza:\n\n" +
+               "Cuello:\n\n" +
+               "Torax:\n" +
+               "\tMamas:\n" +
+               "\tCorazon:\n" +
+               "\tPulmones:\n\n" +
+               "Abdomen:\n\n" +
+               "Genitourinario:\n\n" +
+               "Extremidades:\n\n\n" +
+               "Resultados de Laboratorio:\n\n" +
+               "Colesterol total:\n" +
+               "Colesterol HDL:\n" +
+               "Colesterol LDL:\n" +
+               "Trigliceridos:\n" +
+               "HB:\t\tLEUCO:\n" +
+               "HTO:\t\tN%:\n" +
+               "PLT:\t\tL%:\n\n" +
+               "Diaganostico:";
+
+            string antecedentes = "Antecedentes Pesonales Patologicos:\n\n" +
+                  "Antecedentes Quirurgicos / Traumaticos:\n\n" +
+                  "Antecendes Alergicos:\n\n" +
+                  "Antecendes Familiares:";
+            txtHistoriaClinica.Text = "";
+            txtAntecedentes.Text = "";
+            txtHistoriaClinica.AppendText(historiaClinica);
+            txtAntecedentes.AppendText(antecedentes);
+            txtHEA.Text = "";
+            txtMotivoConsulta.Text = "";
+            txtTratamiento.Text = "";
+            tbClaveDiagnostico.Text = "";
+            tbEdadPaciente.Text = "";
+            tbIdentidadPaciente.Text = "";
+            tbNombrePaciente.Text = "";
+            tbNombreDiagnostico.Text = "";
+            tbSexo.Text = "";
+            tbSexo.Text = "";
+        }
         private void Timer_Tick(object sender, EventArgs e)
         {
             DateTime date;
@@ -181,6 +227,7 @@ namespace scc
                 if (Historiales.Historial.InsertarHistorial(agregarHistoria))
                 {
                     MessageBox.Show("La historia clinica ha sido registrad", "Registro Guardado", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Limpiar();
 
                
                     
@@ -188,6 +235,7 @@ namespace scc
                 else
                 {
                     MessageBox.Show("Los datos no han sido registrados", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Limpiar();
                 }
             }
         }

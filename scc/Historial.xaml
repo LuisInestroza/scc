@@ -112,24 +112,24 @@
                     FontSize="15"
                     FontWeight="UltraBold"
                     VerticalAlignment="Top"
-                    Text="NombrePaciente"
+                   
                     Margin="20,110,223,0" Height="18"/>
                 <TextBlock 
                         x:Name="tbIdentidadPaciente"
                         FontSize="15"
                         FontWeight="UltraBold"
                         VerticalAlignment="Top"
-                        Text="Identidad Paciente"
+                      
                         Margin="21,129,349,0" Height="18" Width="390"/>
                 <TextBlock
-                    Text="Edad Paciente"
+                    
                     x:Name="tbEdadPaciente"
                     FontSize="15"
                     FontWeight="UltraBold"
                     VerticalAlignment="Top"
                     Margin="20,147,223,0" Height="18"/>
                 <TextBlock
-                    Text="Sexo Paciente"
+                  
                     x:Name="tbSexo"
                     FontSize="15"
                     FontWeight="UltraBold"
@@ -216,7 +216,7 @@
                 <TextBlock
                     x:Name="tbClaveDiagnostico"
                     materialDesign:HintAssist.Hint="Tratamiento"
-                    Text="Clave Diagnostico"
+                    
                     FontSize="15"
                     FontWeight="UltraBold"
                     VerticalAlignment="Top"
@@ -224,7 +224,7 @@
                     Margin="20,59,223,0" Grid.Row="2"/>
                 <TextBlock
                     x:Name="tbNombreDiagnostico"
-                    Text="Nombre Enfermedad"
+                   
                     materialDesign:HintAssist.Hint="Tratamiento"
                     FontWeight="UltraBold"
                     VerticalAlignment="Top"

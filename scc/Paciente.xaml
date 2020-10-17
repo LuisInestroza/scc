@@ -70,7 +70,7 @@
                          
                          ScrollViewer.VerticalScrollBarVisibility="Auto"
                          x:Name="lbListaPacientes" 
-                    SelectionChanged="lbListaPacientes_SelectionChanged"
+                   
                          Margin="0,125,0,0" RenderTransformOrigin="0.5,0.5" Width="296">
                 </ListBox>
                 <!--Formulario-->
@@ -278,6 +278,7 @@
                     x:Name="txtBuscarPacienteIdentidad"
                     TextChanged="txtBuscarPacienteIdentidad_TextChanged"
                     materialDesign:HintAssist.Hint="Buscar Paciente Identidad"
+                    Text="{Binding ElementName=lbListaPacientes, Path=SelectedItem}"
                     Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                     VerticalAlignment="Top"
                     Height="44" 

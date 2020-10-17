@@ -237,3 +237,7 @@ SELECT * FROM scc.Paciente WHERE identidadPaciente = '0318199601640'
 SELECT nombrePaciente FROM scc.Paciente ORDER BY CONVERT(varchar,nombrePaciente);
 
 select * from scc.Paciente where nombrePaciente like 'Luis Dario Rodriguez Inestroza'
+
+select *from scc.Historial;
+
+DELETE scc.Historial where idHistorial = 103

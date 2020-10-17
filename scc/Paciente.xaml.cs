@@ -243,9 +243,6 @@ namespace scc
             }
         }
 
-        private void lbListaPacientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            txtBuscarPacienteIdentidad.Text = lbListaPacientes.SelectedItem.ToString();
-        }
+        
     }
 }
