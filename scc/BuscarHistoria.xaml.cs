@@ -90,8 +90,14 @@ namespace scc
                 formHistorial.txtHistoriaClinica.Text = examenFisico;
 
                 MessageBox.Show("Datos Seleccionados", "Informacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                if(formHistorial.idDiagnostico != 0)
+                {
+                    formHistorial.btnActualizarHistoria.IsEnabled =true;
+                    formHistorial.btnGuardarHistoria.IsEnabled = false;
+                    this.Close();
+                }
 
-                this.Close();
+               
 
             }
             else

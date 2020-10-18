@@ -160,6 +160,26 @@ END
 GO
 
 --- FIN DEL PROCEDURE
+CREATE PROCEDURE sp_ActualizarHistoria(
+	 @idHistorial INT ,
+    @motivoConsulta TEXT,
+    @antecedentes TEXT,
+    @descripcion TEXT,
+    @tratamiento TEXT,
+    @cita DATE,
+    @idPaciente INT,
+    @idDiagnostico INT,
+	@HEA TEXT
+)
+AS
+BEGIN
+	UPDATE scc.Historial SET motivoConsulta=@motivoConsulta, antecedentes=@antecedentes, descripcion=@descripcion, tratamiento=@tratamiento, cita=@cita, idPaciente=@idPaciente, idDiagnostico=@idDiagnostico, HEA=@HEA
+			WHERE idHistorial = @idHistorial  
+END
+GO
+
+
+
 -- PROCEDURE DE INSERTAR HISTORIA CLINICA
 CREATE PROCEDURE sp_AgregarHistorial(
 	@fechaIngreso DATETIME,

@@ -86,7 +86,7 @@
                         Width="168"
                         FontSize="15"
                         ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
-                        Margin="147,9,0,0" VerticalAlignment="Top"
+                        Margin="22,9,0,0" VerticalAlignment="Top"
                     HorizontalAlignment="Left" Height="39" 
                     Content="BUSCAR PACIENTE" Grid.Row="3"/>
                 <TextBlock 
@@ -180,10 +180,10 @@
                             ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
                         Click="btnBuscarDiagnostico_Click" 
                         VerticalAlignment="Top" 
-                        Margin="613,10,385,0" 
+                        Margin="470,10,88,0" 
                         FontSize="15"
                       
-                        Content="BUSCAR DIAGNOSTICO" Height="38" Grid.Row="3" Grid.ColumnSpan="2"/>
+                        Content="BUSCAR DIAGNOSTICO" Height="38" Grid.Row="3"/>
 
 
                 <TextBox
@@ -238,7 +238,7 @@
                     Width="239"
                     FontSize="15"
                     ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
-                    Margin="346,9,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="39" Grid.Row="3">
+                    Margin="212,9,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="39" Grid.Row="3">
 
 
                     GUARDAR HISTORIA CLINICA
@@ -251,9 +251,18 @@
             ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
             Click="btnBuscarHistoria_Click"
             VerticalAlignment="Top" 
-            Margin="59,640,138,0" 
+            Margin="691,640,287,0" 
             FontSize="15"
                       
-            Content="BUSCAR HISTORIA CLINICA" Height="38" Grid.Column="1"/>
+            Content="BUSCAR HISTORIA CLINICA" Height="38" Grid.ColumnSpan="2"/>
+        <Button
+            x:Name="btnActualizarHistoria"
+            Click="btnActualizarHistoria_Click"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Width="259"
+            FontSize="15"
+            ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
+            Margin="150,639,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" 
+            Height="39" Content="ACTUALIZAR HISTORIA CLINICA" Grid.Column="1"/>
     </Grid>
 </Window>

@@ -38,7 +38,9 @@ namespace scc
         public Historial()
         {
             InitializeComponent();
-            
+
+           
+            btnActualizarHistoria.IsEnabled = false;
             
 
             // Mostrar el hora y fecha
@@ -144,6 +146,8 @@ namespace scc
             tbNombreDiagnostico.Text = "";
             tbSexo.Text = "";
             tbSexo.Text = "";
+            btnActualizarHistoria.IsEnabled = false;
+            btnGuardarHistoria.IsEnabled = true;
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -254,6 +258,30 @@ namespace scc
         {
             BuscarHistoria abrir = new BuscarHistoria(this);
             abrir.Show();
+        }
+
+        private void btnActualizarHistoria_Click(object sender, RoutedEventArgs e)
+        {
+            Historiales.Historial historial = new Historiales.Historial();
+            historial.idPaciente = idPaciente;
+            historial.idDiagnostico = idDiagnostico;
+            historial.motivoConsulta = txtMotivoConsulta.Text;
+            historial.antecedentes = txtAntecedentes.Text;
+            historial.tratamiento = txtTratamiento.Text;
+            historial.HEA = txtHEA.Text;
+            historial.descripcion = txtHistoriaClinica.Text;
+            historial.cita = Convert.ToDateTime(dpCita.Text);
+            historial.idHistorial = idHistoria;
+
+            if (Historiales.Historial.ActualizarHistorial(historial))
+            {
+                MessageBox.Show("Los Datos Se Han Actualizados", "Actualizacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                Limpiar();
+            }
+            else
+            {
+                MessageBox.Show("Los Datos No Se Han Actualizados", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 

@@ -252,7 +252,79 @@ namespace scc.Historiales
             }
 
         }
+        /// <summary>
+        /// Metodo para acutalizar una historia clinoca
+        /// </summary>
+        /// <param name="historial"></param>
+        /// <returns></returns>
 
+        public static bool ActualizarHistorial(Historial historial)
+        {
+            // Realizar la conexion
+
+            Conexion conexion = new Conexion(@"(local)\sqlexpress", "scc");
+
+            //Ejecutar el Store 
+            SqlCommand cmd = conexion.EjecutarComando("sp_ActualizarHistoria");
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            // Agregar los parametros del Store Procedure  
+            // A los atribustos de la clase 
+
+            cmd.Parameters.Add(new SqlParameter("@idHistorial", SqlDbType.Int));
+            cmd.Parameters["@idHistorial"].Value = historial.idHistorial;
+
+            cmd.Parameters.Add(new SqlParameter("@motivoConsulta", SqlDbType.Text));
+            cmd.Parameters["@motivoConsulta"].Value = historial.motivoConsulta;
+
+            cmd.Parameters.Add(new SqlParameter("@antecedentes", SqlDbType.Text));
+            cmd.Parameters["@antecedentes"].Value = historial.antecedentes;
+
+            cmd.Parameters.Add(new SqlParameter("@descripcion", SqlDbType.Text));
+            cmd.Parameters["@descripcion"].Value = historial.descripcion;
+
+            cmd.Parameters.Add(new SqlParameter("@tratamiento", SqlDbType.Text));
+            cmd.Parameters["@tratamiento"].Value = historial.tratamiento;
+
+            cmd.Parameters.Add(new SqlParameter("@cita", SqlDbType.Date));
+            cmd.Parameters["@cita"].Value = historial.cita;
+
+            cmd.Parameters.Add(new SqlParameter("@idPaciente", SqlDbType.Int));
+            cmd.Parameters["@idPaciente"].Value = historial.idPaciente;
+
+            cmd.Parameters.Add(new SqlParameter("@idDiagnostico", SqlDbType.Int));
+            cmd.Parameters["@idDiagnostico"].Value = historial.idDiagnostico;
+
+            cmd.Parameters.Add(new SqlParameter("@HEA", SqlDbType.Text));
+            cmd.Parameters["@HEA"].Value = historial.HEA;
+
+
+            // Realizar la el registro del Historial
+            try
+            {
+                // Conexion a la base de datos
+                conexion.EstablecerConexion();
+
+                // Ejecutar el Store Procedure
+                cmd.ExecuteNonQuery();
+
+                // Retornar los valores
+                return true;
+
+            }
+            catch (SqlException)
+            {
+
+                return false;
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+
+
+
+        }
 
 
 
