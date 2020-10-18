@@ -76,6 +76,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BuscarHistoria.xaml.cs">
+      <DependentUpon>BuscarHistoria.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BuscarPaciente.xaml.cs">
       <DependentUpon>BuscarPaciente.xaml</DependentUpon>
     </Compile>
@@ -90,6 +93,10 @@
       <DependentUpon>reportePacienteUnicoDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Usuarios\Usuario.cs" />
+    <Page Include="BuscarHistoria.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="BuscarPaciente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

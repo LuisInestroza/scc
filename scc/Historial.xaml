@@ -86,7 +86,7 @@
                         Width="168"
                         FontSize="15"
                         ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
-                        Margin="243,9,0,0" VerticalAlignment="Top"
+                        Margin="147,9,0,0" VerticalAlignment="Top"
                     HorizontalAlignment="Left" Height="39" 
                     Content="BUSCAR PACIENTE" Grid.Row="3"/>
                 <TextBlock 
@@ -180,7 +180,7 @@
                             ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
                         Click="btnBuscarDiagnostico_Click" 
                         VerticalAlignment="Top" 
-                        Margin="700,10,298,0" 
+                        Margin="613,10,385,0" 
                         FontSize="15"
                       
                         Content="BUSCAR DIAGNOSTICO" Height="38" Grid.Row="3" Grid.ColumnSpan="2"/>
@@ -238,7 +238,7 @@
                     Width="239"
                     FontSize="15"
                     ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" 
-                    Margin="436,9,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="39" Grid.Row="3">
+                    Margin="346,9,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="39" Grid.Row="3">
 
 
                     GUARDAR HISTORIA CLINICA
@@ -246,5 +246,14 @@
 
             </Grid>
         </materialDesign:Card>
+        <Button x:Name="btnBuscarHistoria" 
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            ToolTip="Resource name: MaterialDesignRaisedLightDarkButton"
+            Click="btnBuscarHistoria_Click"
+            VerticalAlignment="Top" 
+            Margin="59,640,138,0" 
+            FontSize="15"
+                      
+            Content="BUSCAR HISTORIA CLINICA" Height="38" Grid.Column="1"/>
     </Grid>
 </Window>

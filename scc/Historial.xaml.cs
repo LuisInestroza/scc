@@ -33,7 +33,7 @@ namespace scc
         // Valores para la el idPaciente, idDiagnostico
         public int idPaciente;
         public int idDiagnostico;
-        
+        public int idHistoria;
 
         public Historial()
         {
@@ -248,6 +248,12 @@ namespace scc
         private void btnCerrarVentana_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void btnBuscarHistoria_Click(object sender, RoutedEventArgs e)
+        {
+            BuscarHistoria abrir = new BuscarHistoria(this);
+            abrir.Show();
         }
     }
 

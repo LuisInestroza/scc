@@ -232,12 +232,32 @@ exec sp_reportePacienteUnico '', ''
 DROP PROCEDURE sp_reportePacienteUnico
 
 
-SELECT * FROM scc.Paciente WHERE identidadPaciente = '0318199601640'
+SELECT * FROM scc.Paciente WHERE identidadPaciente = ''
 
 SELECT nombrePaciente FROM scc.Paciente ORDER BY CONVERT(varchar,nombrePaciente);
 
-select * from scc.Paciente where nombrePaciente like 'Luis Dario Rodriguez Inestroza'
+select * from scc.Paciente where nombrePaciente like ''
 
 select *from scc.Historial;
 
 DELETE scc.Historial where idHistorial = 103
+
+
+
+
+SELECT nombrePaciente, edad, sexo, motivoConsulta,HEA, antecedentes,tratamiento, fechaIngreso, descripcion, Nombre 
+	                            FROM scc.Paciente Paciente 
+		                            INNER JOIN scc.Historial Historial 
+			                            ON Paciente.idPaciente = Historial.idPaciente
+		                            INNER JOIN scc.CIECAT Diagnostico
+			                            ON Diagnostico.ID = Historial.idDiagnostico	
+                            WHERE CONVERT(varchar, nombrePaciente) LIKE 'Luis Dario Rodriguez Inestroza' or identidadPaciente = ''
+   
+
+   
+SELECT Paciente.idPaciente, identidadPaciente, nombrePaciente, edad, sexo, idHistorial, motivoConsulta,HEA, antecedentes,tratamiento, fechaIngreso,cita, descripcion, ID, Clave, Nombre 
+	                            FROM scc.Paciente Paciente 
+		                            INNER JOIN scc.Historial Historial 
+			                            ON Paciente.idPaciente = Historial.idPaciente
+		                            INNER JOIN scc.CIECAT Diagnostico
+			                            ON Diagnostico.ID = Historial.idDiagnostico
